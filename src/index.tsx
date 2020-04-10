@@ -1,7 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import { DatePicker } from "./DatePicker";
 
-import App from "./App";
-import "./index.scss";
-
-ReactDOM.render(<App />, document.getElementById("root"));
+export { DatePicker };

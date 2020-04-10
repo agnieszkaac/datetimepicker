@@ -4,6 +4,7 @@ const common = require("./webpack.common");
 
 module.exports = merge(common, {
   mode: "development",
+  entry: path.resolve(__dirname, "src/App.tsx"),
   devtool: "eval-source-map",
   devServer: {
     contentBase: "./dist",
