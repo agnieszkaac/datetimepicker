@@ -1,0 +1,45 @@
+{
+  "name": "react-typescript-templates",
+  "version": "1.0.0",
+  "description": "It is a starter pack for any ReactJS project that I will do in the future (hopefully).",
+  "private": true,
+  "scripts": {
+    "type:check": "tsc",
+    "type:watch": "tsc --watch",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "prettify": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
+    "prettify:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx}'",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.4.2",
+    "html-webpack-plugin": "^4.0.4",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "prettier": "^2.0.4",
+    "react-hot-loader": "^4.12.20",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.3",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "author": "Agnieszka Cieśla <agnieszka.ciesla333@gmail.com>",
+  "license": "MIT"
+}
