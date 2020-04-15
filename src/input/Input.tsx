@@ -1,6 +1,7 @@
 import React, { Ref } from "react";
 
 import { noop } from "../utils";
+import "./Input.scss";
 
 interface InputProps {
   value?: string;
@@ -14,14 +15,13 @@ export const Input: React.FunctionComponent<InputProps> = ({
   inputRef,
   onClick = noop,
   onBlur = noop,
-}) => {
-  return (
-    <input
-      name="datepicker-input"
-      ref={inputRef}
-      value={value}
-      onClick={onClick}
-      onBlur={onBlur}
-    />
-  );
-};
+}) => (
+  <input
+    name="datepicker-input"
+    className="datepicker-input"
+    ref={inputRef}
+    value={value}
+    onClick={onClick}
+    onBlur={onBlur}
+  />
+);
