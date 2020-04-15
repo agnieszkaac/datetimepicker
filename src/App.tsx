@@ -1,11 +1,6 @@
 import React from "react";
-import { hot } from "react-hot-loader/root";
+import ReactDOM from "react-dom";
 
-import "./App.scss";
+import { DatePicker } from "./";
 
-class App extends React.PureComponent {
-  render() {
-    return <>App</>;
-  }
-}
-export default hot(App);
+ReactDOM.render(<DatePicker />, document.getElementById("root"));

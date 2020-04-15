@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "It is a starter pack for any ReactJS project that I will do in the future (hopefully).",
   "private": true,
+  "main": "index.tsx",
   "scripts": {
     "type:check": "tsc",
     "type:watch": "tsc --watch",
