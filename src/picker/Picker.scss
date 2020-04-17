@@ -14,6 +14,9 @@ $size: 25px;
   &:hover {
     background-color: silver;
   }
+  &.selected {
+    background-color: aquamarine;
+  }
 }
 
 .day-picker {
