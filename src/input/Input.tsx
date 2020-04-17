@@ -1,27 +1,21 @@
-import React, { Ref } from "react";
+import React from "react";
 
 import { noop } from "../utils";
-
-interface InputProps {
-  value?: string;
-  inputRef: Ref<HTMLInputElement>;
-  onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
-}
+import { InputProps } from "../types";
+import "./Input.scss";
 
 export const Input: React.FunctionComponent<InputProps> = ({
   value,
   inputRef,
   onClick = noop,
   onBlur = noop,
-}) => {
-  return (
-    <input
-      name="datepicker-input"
-      ref={inputRef}
-      value={value}
-      onClick={onClick}
-      onBlur={onBlur}
-    />
-  );
-};
+}) => (
+  <input
+    name="datepicker-input"
+    className="datepicker-input"
+    ref={inputRef}
+    value={value}
+    onClick={onClick}
+    onBlur={onBlur}
+  />
+);
