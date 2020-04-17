@@ -3,15 +3,8 @@ import React, { Ref, useEffect, useRef, useState } from "react";
 import { Picker } from "./picker/Picker";
 import { Input } from "./input/Input";
 import { noop } from "./utils";
+import { DatePickerProps } from "./types";
 import "./DatePicker.scss";
-
-interface DatePickerProps {
-  value?: string;
-  hideOnPick?: boolean;
-  onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
-  onPick?: (e: React.MouseEvent<HTMLDivElement>) => void;
-}
 
 export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   value,
@@ -27,13 +20,13 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   const [pickerOpen, setPickerOpen] = useState(false);
 
   const handleClickListener = (event: MouseEvent) => {
-    if (!wrapperRef.current?.contains(event.target)) {
+    if (!wrapperRef.current?.contains(event.target as Node)) {
       setPickerOpen(false);
     }
-    if (inputRef.current?.contains(event.target)) {
+    if (inputRef.current?.contains(event.target as Node)) {
       setPickerOpen(!pickerOpen);
     }
-    if (pickerRef.current?.contains(event.target) && hideOnPick) {
+    if (pickerRef.current?.contains(event.target as Node) && hideOnPick) {
       setPickerOpen(!pickerOpen);
     }
   };

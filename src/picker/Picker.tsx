@@ -1,12 +1,8 @@
-import React, { Ref } from "react";
+import React from "react";
 
-import "./Picker.scss";
 import { noop } from "../utils";
-
-interface PickerProps {
-  pickerRef: Ref<HTMLDivElement>;
-  onPick?: (e: React.MouseEvent<HTMLDivElement>) => void;
-}
+import { PickerProps } from "../types";
+import "./Picker.scss";
 
 export const Picker: React.FunctionComponent<PickerProps> = ({
   pickerRef,

@@ -1,14 +1,8 @@
-import React, { Ref } from "react";
+import React from "react";
 
 import { noop } from "../utils";
+import { InputProps } from "../types";
 import "./Input.scss";
-
-interface InputProps {
-  value?: string;
-  inputRef: Ref<HTMLInputElement>;
-  onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
-}
 
 export const Input: React.FunctionComponent<InputProps> = ({
   value,
