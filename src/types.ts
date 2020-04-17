@@ -1,11 +1,12 @@
 import React, { Ref } from "react";
 
-export interface DatePickerProps {
-  value?: string;
-  hideOnPick?: boolean;
-  onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
-  onPick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+export interface DayProps {
+  value: string;
+  onPick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+export interface DayPickerProps {
+  onPick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface InputProps {
@@ -17,5 +18,13 @@ export interface InputProps {
 
 export interface PickerProps {
   pickerRef: Ref<HTMLDivElement>;
-  onPick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onPick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+export interface DatePickerProps {
+  value?: string;
+  hideOnPick?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onPick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }

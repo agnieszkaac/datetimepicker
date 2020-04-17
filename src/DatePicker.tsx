@@ -38,6 +38,11 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
     };
   }, [pickerOpen]);
 
+  const handlePick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log("Day", e.currentTarget.value);
+    onPick(e);
+  };
+
   return (
     <div ref={wrapperRef} className="wrapper">
       <Input
@@ -46,7 +51,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
         onClick={onClick}
         onBlur={onBlur}
       />
-      {pickerOpen && <Picker pickerRef={pickerRef} onPick={onPick} />}
+      {pickerOpen && <Picker pickerRef={pickerRef} onPick={handlePick} />}
     </div>
   );
 };

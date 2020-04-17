@@ -2,15 +2,16 @@ import React from "react";
 
 import { noop } from "../utils";
 import { PickerProps } from "../types";
+import { DayPicker } from "./DayPicker";
 import "./Picker.scss";
 
 export const Picker: React.FunctionComponent<PickerProps> = ({
   pickerRef,
   onPick = noop,
-}) => (
-  <div className={"picker"} onClick={onPick} ref={pickerRef}>
-    <span>1</span>
-    <span>2</span>
-    <span>3</span>
-  </div>
-);
+}) => {
+  return (
+    <div className={"picker"} ref={pickerRef}>
+      <DayPicker onPick={onPick}/>
+    </div>
+  );
+};
