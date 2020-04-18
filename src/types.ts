@@ -3,7 +3,6 @@ import React, { Ref } from "react";
 export interface DayProps {
   value: string;
   selected: boolean;
-  isToday: boolean;
   onPick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
