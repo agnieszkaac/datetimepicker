@@ -4,7 +4,7 @@ import moment from "moment";
 
 import { DayPickerProps, DayProps } from "../types";
 
-const Day: React.FunctionComponent<DayProps> = ({
+export const Day: React.FunctionComponent<DayProps> = ({
   value,
   selected,
   onPick,
@@ -12,6 +12,7 @@ const Day: React.FunctionComponent<DayProps> = ({
   const isToday = moment().date().toString() === value;
   return (
     <button
+      type="button"
       className={cx("day", { selected: selected, "is-today": isToday })}
       onClick={onPick}
       value={value}

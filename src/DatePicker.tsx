@@ -18,7 +18,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   const inputRef: Ref<HTMLInputElement> = useRef(null);
 
   const [pickerOpen, setPickerOpen] = useState(false);
-  const [date, setDate] = useState(value || '');
+  const [date, setDate] = useState(value || "");
 
   const handleClickListener = (event: MouseEvent) => {
     if (!wrapperRef.current?.contains(event.target as Node)) {
@@ -46,7 +46,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value)
+    console.log(e.target.value);
   };
 
   return (
@@ -58,7 +58,9 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
         onBlur={onBlur}
         onChange={handleChange}
       />
-      {pickerOpen && <Picker value={date} pickerRef={pickerRef} onPick={handlePick} />}
+      {pickerOpen && (
+        <Picker value={date} pickerRef={pickerRef} onPick={handlePick} />
+      )}
     </div>
   );
 };
