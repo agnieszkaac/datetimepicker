@@ -9,6 +9,7 @@ export const Input: React.FunctionComponent<InputProps> = ({
   inputRef,
   onClick = noop,
   onBlur = noop,
+  onChange = noop,
 }) => (
   <input
     name="datepicker-input"
@@ -17,5 +18,6 @@ export const Input: React.FunctionComponent<InputProps> = ({
     value={value}
     onClick={onClick}
     onBlur={onBlur}
+    onChange={onChange}
   />
 );
