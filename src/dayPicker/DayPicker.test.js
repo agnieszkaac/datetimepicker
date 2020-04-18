@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import { Day } from "./DayPicker";
+import { Day } from "./Day";
 
 const onPick = jest.fn();
 jest.mock("moment", () => () => ({
