@@ -30,12 +30,20 @@ $size: 25px;
 
 .picker {
   display: flex;
+  flex-flow: column;
   justify-content: center;
   min-width: 200px;
   padding: 4px;
   margin-top: 4px;
   background-color: white;
   border: 1px solid slategray;
+
+  .wrapper {
+    display: flex;
+    justify-items: center;
+    height: 140px;
+
+  }
 }
 
 .switch-month {

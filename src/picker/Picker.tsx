@@ -18,13 +18,16 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
   };
 
   return (
-    <div className={"picker"} ref={pickerRef}>
-      <div className="switch-month" onClick={(e) => switchMonth(-1)}>
-        -
-      </div>
-      <DayPicker monthLength={daysInMonth} value={value} onPick={onPick} />
-      <div className="switch-month" onClick={(e) => switchMonth(+1)}>
-        +
+    <div className="picker" ref={pickerRef}>
+      <span>{month}</span>
+      <div className="wrapper">
+        <div className="switch-month" onClick={(e) => switchMonth(-1)}>
+          -
+        </div>
+        <DayPicker monthLength={daysInMonth} value={value} onPick={onPick} />
+        <div className="switch-month" onClick={(e) => switchMonth(+1)}>
+          +
+        </div>
       </div>
     </div>
   );
