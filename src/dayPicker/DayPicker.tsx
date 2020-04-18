@@ -1,7 +1,6 @@
 import React from "react";
 
-import { DayPickerProps } from "./types";
-import { Day } from "./Day";
+import { DayPickerProps, Day } from "./";
 
 export const DayPicker: React.FunctionComponent<DayPickerProps> = ({
   value,

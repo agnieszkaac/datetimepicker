@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Month/> should match snapshot for NOT present month, selected 1`] = `
+<div>
+  <button
+    class="month selected"
+    type="button"
+    value="2"
+  >
+    Jan
+  </button>
+</div>
+`;
+
+exports[`<Month/> should match snapshot for present month, NOT selected 1`] = `
+<div>
+  <button
+    class="month"
+    type="button"
+    value="1"
+  >
+    Jan
+  </button>
+</div>
+`;
+
+exports[`<Month/> should match snapshot for present month, selected 1`] = `
+<div>
+  <button
+    class="month selected"
+    type="button"
+    value="1"
+  >
+    Jan
+  </button>
+</div>
+`;
+
+exports[`<Month/> should math snapshot for NOT present month, NOT selected 1`] = `
+<div>
+  <button
+    class="month"
+    type="button"
+    value="2"
+  >
+    Jan
+  </button>
+</div>
+`;
+
+exports[`<MonthPicker /> should match snapshot 1`] = `
+<div>
+  <div
+    class="month-picker"
+  >
+    <button
+      class="month selected"
+      type="button"
+      value="1"
+    >
+      Jan
+    </button>
+    <button
+      class="month"
+      type="button"
+      value="2"
+    >
+      Jan
+    </button>
+    <button
+      class="month"
+      type="button"
+      value="3"
+    >
+      Jan
+    </button>
+    <button
+      class="month"
+      type="button"
+      value="4"
+    >
+      Jan
+    </button>
+    <button
+      class="month"
+      type="button"
+      value="5"
+    >
+      Jan
+    </button>
+    <button
+      class="month"
+      type="button"
+      value="6"
+    >
+      Jan
+    </button>
+    <button
+      class="month"
+      type="button"
+      value="7"
+    >
+      Jan
+    </button>
+    <button
+      class="month"
+      type="button"
+      value="8"
+    >
+      Jan
+    </button>
+    <button
+      class="month"
+      type="button"
+      value="9"
+    >
+      Jan
+    </button>
+    <button
+      class="month"
+      type="button"
+      value="10"
+    >
+      Jan
+    </button>
+    <button
+      class="month is-today"
+      type="button"
+      value="11"
+    >
+      Jan
+    </button>
+    <button
+      class="month"
+      type="button"
+      value="12"
+    >
+      Jan
+    </button>
+  </div>
+</div>
+`;

@@ -5,6 +5,7 @@ import { noop } from "../utils";
 import { PickerProps } from "../types";
 import { DayPicker } from "../dayPicker/DayPicker";
 import "./Picker.scss";
+import { MonthPicker } from "../monthPicker";
 
 export const Picker: React.FunctionComponent<PickerProps> = ({
   value,
@@ -24,7 +25,7 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
         <div className="switch-month" onClick={(e) => switchMonth(-1)}>
           -
         </div>
-        <DayPicker monthLength={daysInMonth} value={value} onPick={onPick} />
+        <MonthPicker value={value} onPick={onPick} />
         <div className="switch-month" onClick={(e) => switchMonth(+1)}>
           +
         </div>
