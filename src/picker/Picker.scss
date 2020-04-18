@@ -1,6 +1,6 @@
 $size: 25px;
 
-.day-box {
+.day {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,4 +36,15 @@ $size: 25px;
   margin-top: 4px;
   background-color: white;
   border: 1px solid slategray;
+}
+
+.switch-month {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+
+  &:hover {
+    background-color: silver;
+  }
 }

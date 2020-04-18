@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import moment from "moment";
 
 import { noop } from "../utils";
 import { PickerProps } from "../types";
@@ -10,9 +11,21 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
   pickerRef,
   onPick = noop,
 }) => {
+  const [month, setMonth] = useState(moment().month());
+  const daysInMonth = moment().month(month).daysInMonth();
+  const switchMonth = (value: number) => {
+    setMonth(month + value);
+  };
+
   return (
     <div className={"picker"} ref={pickerRef}>
-      <DayPicker value={value} onPick={onPick}/>
+      <div className="switch-month" onClick={(e) => switchMonth(-1)}>
+        -
+      </div>
+      <DayPicker monthLength={daysInMonth} value={value} onPick={onPick} />
+      <div className="switch-month" onClick={(e) => switchMonth(+1)}>
+        +
+      </div>
     </div>
   );
 };
