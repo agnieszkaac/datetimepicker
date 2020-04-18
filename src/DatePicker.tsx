@@ -45,6 +45,10 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
     onPick(e);
   };
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value)
+  };
+
   return (
     <div ref={wrapperRef} className="wrapper">
       <Input
@@ -52,6 +56,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
         inputRef={inputRef}
         onClick={onClick}
         onBlur={onBlur}
+        onChange={handleChange}
       />
       {pickerOpen && <Picker value={date} pickerRef={pickerRef} onPick={handlePick} />}
     </div>
