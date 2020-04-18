@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Day /> should match snapshot for NOT present day, NOT selected 1`] = `
+<div>
+  <button
+    class="day"
+    type="button"
+    value="2"
+  >
+    2
+  </button>
+</div>
+`;
+
+exports[`<Day /> should match snapshot for NOT present day, selected 1`] = `
+<div>
+  <button
+    class="day selected"
+    type="button"
+    value="2"
+  >
+    2
+  </button>
+</div>
+`;
+
+exports[`<Day /> should match snapshot for present day, NOT selected 1`] = `
+<div>
+  <button
+    class="day is-today"
+    type="button"
+    value="1"
+  >
+    1
+  </button>
+</div>
+`;
+
+exports[`<Day /> should match snapshot for present day, selected 1`] = `
+<div>
+  <button
+    class="day selected is-today"
+    type="button"
+    value="1"
+  >
+    1
+  </button>
+</div>
+`;
+
+exports[`<DayPicker /> should match snapshot 1`] = `
+<div>
+  <div
+    class="day-picker"
+  >
+    <button
+      class="day selected is-today"
+      type="button"
+      value="1"
+    >
+      1
+    </button>
+    <button
+      class="day"
+      type="button"
+      value="2"
+    >
+      2
+    </button>
+    <button
+      class="day"
+      type="button"
+      value="3"
+    >
+      3
+    </button>
+    <button
+      class="day"
+      type="button"
+      value="4"
+    >
+      4
+    </button>
+    <button
+      class="day"
+      type="button"
+      value="5"
+    >
+      5
+    </button>
+    <button
+      class="day"
+      type="button"
+      value="6"
+    >
+      6
+    </button>
+    <button
+      class="day"
+      type="button"
+      value="7"
+    >
+      7
+    </button>
+    <button
+      class="day"
+      type="button"
+      value="8"
+    >
+      8
+    </button>
+    <button
+      class="day"
+      type="button"
+      value="9"
+    >
+      9
+    </button>
+    <button
+      class="day"
+      type="button"
+      value="10"
+    >
+      10
+    </button>
+  </div>
+</div>
+`;

@@ -3,7 +3,7 @@ import moment from "moment";
 
 import { noop } from "../utils";
 import { PickerProps } from "../types";
-import { DayPicker } from "./DayPicker";
+import { DayPicker } from "../dayPicker/DayPicker";
 import "./Picker.scss";
 
 export const Picker: React.FunctionComponent<PickerProps> = ({
