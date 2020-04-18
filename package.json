@@ -10,6 +10,8 @@
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "prettify": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
     "prettify:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx}'",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "build": "webpack --config webpack.prod.js"
   },
   "devDependencies": {
@@ -19,6 +21,8 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.2",
     "@types/classnames": "^2.2.10",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
