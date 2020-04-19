@@ -7,6 +7,7 @@ import { MonthPicker } from "../monthPicker";
 import { DayPicker } from "../dayPicker";
 import { YearPicker } from "../yearPicker";
 import "./Picker.scss";
+import { Switch } from "./Switch";
 
 export const Picker: React.FunctionComponent<PickerProps> = ({
   date,
@@ -37,9 +38,7 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
 
   return (
     <div className="picker" ref={pickerRef}>
-      <div className="view-changer" onClick={changeView}>
-        {viewDate.format("MMMM YYYY")}
-      </div>
+      <Switch viewDate={viewDate} view={view} onClick={changeView} />
       <div className="wrapper">
         {view === View.Day && (
           <DayPicker date={date} viewDate={viewDate} onPick={onPick} />
