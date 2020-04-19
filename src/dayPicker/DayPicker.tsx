@@ -14,10 +14,7 @@ export const DayPicker: React.FunctionComponent<DayPickerProps> = ({
         <Day
           key={i + 1}
           date={moment(viewDate).date(i + 1)}
-          selected={
-            date?.date() === i + 1 &&
-            viewDate.format("MM-YYYY") === date?.format("MM-YYYY")
-          }
+          selected={date?.date() === i + 1 && date?.isSame(viewDate, "month")}
           onPick={onPick}
         />
       ))}
