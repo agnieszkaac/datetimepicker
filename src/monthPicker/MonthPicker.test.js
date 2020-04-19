@@ -39,7 +39,7 @@ describe("<Month/> should", () => {
 
 describe("<MonthPicker /> should", () => {
   it("match snapshot", () => {
-    const { container } = render(<MonthPicker value={"1"} onPick={onPick} />);
+    const { container } = render(<MonthPicker date={"1"} onPick={onPick} />);
     expect(container).toMatchSnapshot();
   });
 });

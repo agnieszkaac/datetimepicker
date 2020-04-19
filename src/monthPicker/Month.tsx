@@ -10,13 +10,13 @@ export const Month: React.FunctionComponent<MonthProps> = ({
   selected,
   onPick,
 }) => {
-  const isToday = (moment().month() + 1).toString() === value;
+  const isToday = moment().month() + 1 === value;
   return (
     <button
       type="button"
+      value={value}
       className={cx("month", { selected: selected, "is-today": isToday })}
       onClick={onPick}
-      value={value}
     >
       {moment(value, "MM").format("MMM")}
     </button>
