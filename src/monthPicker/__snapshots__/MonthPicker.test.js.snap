@@ -3,9 +3,9 @@
 exports[`<Month/> should match snapshot for NOT present month, selected 1`] = `
 <div>
   <button
-    class="month selected"
+    class="month selected is-today"
     type="button"
-    value="2"
+    value=""
   >
     Jan
   </button>
@@ -15,9 +15,9 @@ exports[`<Month/> should match snapshot for NOT present month, selected 1`] = `
 exports[`<Month/> should match snapshot for present month, NOT selected 1`] = `
 <div>
   <button
-    class="month"
+    class="month is-today"
     type="button"
-    value="1"
+    value=""
   >
     Jan
   </button>
@@ -27,9 +27,9 @@ exports[`<Month/> should match snapshot for present month, NOT selected 1`] = `
 exports[`<Month/> should match snapshot for present month, selected 1`] = `
 <div>
   <button
-    class="month selected"
+    class="month selected is-today"
     type="button"
-    value="1"
+    value=""
   >
     Jan
   </button>
@@ -39,9 +39,9 @@ exports[`<Month/> should match snapshot for present month, selected 1`] = `
 exports[`<Month/> should math snapshot for NOT present month, NOT selected 1`] = `
 <div>
   <button
-    class="month"
+    class="month is-today"
     type="button"
-    value="2"
+    value=""
   >
     Jan
   </button>
@@ -54,86 +54,86 @@ exports[`<MonthPicker /> should match snapshot 1`] = `
     class="month-picker"
   >
     <button
-      class="month"
+      class="month is-today"
       type="button"
-      value="1"
+      value=""
     >
       Jan
     </button>
     <button
-      class="month"
+      class="month is-today"
       type="button"
-      value="2"
+      value=""
     >
       Jan
     </button>
     <button
-      class="month"
+      class="month is-today"
       type="button"
-      value="3"
+      value=""
     >
       Jan
     </button>
     <button
-      class="month"
+      class="month is-today"
       type="button"
-      value="4"
+      value=""
     >
       Jan
     </button>
     <button
-      class="month"
+      class="month is-today"
       type="button"
-      value="5"
+      value=""
     >
       Jan
     </button>
     <button
-      class="month"
+      class="month is-today"
       type="button"
-      value="6"
+      value=""
     >
       Jan
     </button>
     <button
-      class="month"
+      class="month is-today"
       type="button"
-      value="7"
+      value=""
     >
       Jan
     </button>
     <button
-      class="month"
+      class="month is-today"
       type="button"
-      value="8"
+      value=""
     >
       Jan
     </button>
     <button
-      class="month"
+      class="month is-today"
       type="button"
-      value="9"
+      value=""
     >
       Jan
     </button>
     <button
-      class="month"
+      class="month is-today"
       type="button"
-      value="10"
+      value=""
     >
       Jan
     </button>
     <button
-      class="month"
+      class="month is-today"
       type="button"
-      value="11"
+      value=""
     >
       Jan
     </button>
     <button
-      class="month"
+      class="month is-today"
       type="button"
-      value="12"
+      value=""
     >
       Jan
     </button>

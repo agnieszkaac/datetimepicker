@@ -6,19 +6,19 @@ import { MonthProps } from "./";
 import "./MonthPicker.scss";
 
 export const Month: React.FunctionComponent<MonthProps> = ({
-  value,
+  date,
   selected,
   onPick,
 }) => {
-  const isToday = moment().month() + 1 === value;
+  const isToday = moment(date).isSame(moment(), "month");
   return (
     <button
       type="button"
-      value={value}
+      value={moment(date).toISOString()}
       className={cx("month", { selected: selected, "is-today": isToday })}
       onClick={onPick}
     >
-      {moment(value, "MM").format("MMM")}
+      {moment(date).format("MMM")}
     </button>
   );
 };

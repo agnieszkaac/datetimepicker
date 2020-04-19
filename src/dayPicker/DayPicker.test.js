@@ -6,6 +6,9 @@ import { Day, DayPicker } from "./";
 const onPick = jest.fn();
 jest.mock("moment", () => () => ({
   date: () => "1",
+  isSame: (value, granularity) => true,
+  daysInMonth: () => 30,
+  toISOString: () => "",
 }));
 
 describe("<Day /> should", () => {

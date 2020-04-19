@@ -16,7 +16,7 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
   const [viewDate, setViewDate] = useState(moment(date));
 
   const handleMonthPick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setViewDate(viewDate.month(Number(e.currentTarget.value) - 1));
+    setViewDate(moment(e.currentTarget.value));
     setView(View.Day);
   };
 
@@ -40,7 +40,11 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
           <DayPicker date={date} viewDate={viewDate} onPick={onPick} />
         )}
         {view === View.Month && (
-          <MonthPicker date={date} onPick={handleMonthPick} />
+          <MonthPicker
+            date={date}
+            viewDate={viewDate}
+            onPick={handleMonthPick}
+          />
         )}
         {view === View.Year && "Year view"}
       </div>

@@ -10,15 +10,15 @@ export const Day: React.FunctionComponent<DayProps> = ({
   selected,
   onPick,
 }) => {
-  const isToday = date.isSame(moment(), "day");
+  const isToday = moment(date).isSame(moment(), "day");
   return (
     <button
       type="button"
+      value={moment(date).toISOString()}
       className={cx("day", { selected: selected, "is-today": isToday })}
-      value={date.toISOString()}
       onClick={onPick}
     >
-      {date.date()}
+      {moment(date).date()}
     </button>
   );
 };

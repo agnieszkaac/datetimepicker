@@ -3,11 +3,11 @@
 exports[`<Day /> should match snapshot for NOT present day, NOT selected 1`] = `
 <div>
   <button
-    class="day"
+    class="day is-today"
     type="button"
-    value="2"
+    value=""
   >
-    2
+    1
   </button>
 </div>
 `;
@@ -15,11 +15,11 @@ exports[`<Day /> should match snapshot for NOT present day, NOT selected 1`] = `
 exports[`<Day /> should match snapshot for NOT present day, selected 1`] = `
 <div>
   <button
-    class="day selected"
+    class="day selected is-today"
     type="button"
-    value="2"
+    value=""
   >
-    2
+    1
   </button>
 </div>
 `;
@@ -29,7 +29,7 @@ exports[`<Day /> should match snapshot for present day, NOT selected 1`] = `
   <button
     class="day is-today"
     type="button"
-    value="1"
+    value=""
   >
     1
   </button>
@@ -41,7 +41,7 @@ exports[`<Day /> should match snapshot for present day, selected 1`] = `
   <button
     class="day selected is-today"
     type="button"
-    value="1"
+    value=""
   >
     1
   </button>
@@ -54,74 +54,214 @@ exports[`<DayPicker /> should match snapshot 1`] = `
     class="day-picker"
   >
     <button
-      class="day selected is-today"
+      class="day is-today"
       type="button"
-      value="1"
+      value=""
     >
       1
     </button>
     <button
-      class="day"
+      class="day is-today"
       type="button"
-      value="2"
+      value=""
     >
-      2
+      1
     </button>
     <button
-      class="day"
+      class="day is-today"
       type="button"
-      value="3"
+      value=""
     >
-      3
+      1
     </button>
     <button
-      class="day"
+      class="day is-today"
       type="button"
-      value="4"
+      value=""
     >
-      4
+      1
     </button>
     <button
-      class="day"
+      class="day is-today"
       type="button"
-      value="5"
+      value=""
     >
-      5
+      1
     </button>
     <button
-      class="day"
+      class="day is-today"
       type="button"
-      value="6"
+      value=""
     >
-      6
+      1
     </button>
     <button
-      class="day"
+      class="day is-today"
       type="button"
-      value="7"
+      value=""
     >
-      7
+      1
     </button>
     <button
-      class="day"
+      class="day is-today"
       type="button"
-      value="8"
+      value=""
     >
-      8
+      1
     </button>
     <button
-      class="day"
+      class="day is-today"
       type="button"
-      value="9"
+      value=""
     >
-      9
+      1
     </button>
     <button
-      class="day"
+      class="day is-today"
       type="button"
-      value="10"
+      value=""
     >
-      10
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
+    </button>
+    <button
+      class="day is-today"
+      type="button"
+      value=""
+    >
+      1
     </button>
   </div>
 </div>
