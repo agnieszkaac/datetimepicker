@@ -1,18 +1,19 @@
 import React from "react";
+import moment from "moment";
 
 import { DayPickerProps, Day } from "./";
 
 export const DayPicker: React.FunctionComponent<DayPickerProps> = ({
-  value,
-  monthLength,
+  date,
+  viewDate,
   onPick,
 }) => (
   <div className="day-picker">
-    {Array.from({ length: monthLength }, (e, i) => (
+    {Array.from({ length: moment(viewDate).daysInMonth() }, (_e, i) => (
       <Day
         key={i + 1}
-        value={(i + 1).toString()}
-        selected={value === (i + 1).toString()}
+        date={moment(viewDate).date(i + 1)}
+        selected={date?.date() === i + 1}
         onPick={onPick}
       />
     ))}
