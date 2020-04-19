@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Year/> should match snapshot for NOT present day and NOT selected 1`] = `
+<div>
+  <button
+    class="year"
+    type="button"
+    value="2021-01-01T00:00:00.000Z"
+  >
+    2021
+  </button>
+</div>
+`;
+
+exports[`<Year/> should match snapshot for NOT present day and selected 1`] = `
+<div>
+  <button
+    class="year selected"
+    type="button"
+    value="2021-01-01T00:00:00.000Z"
+  >
+    2021
+  </button>
+</div>
+`;
+
+exports[`<Year/> should match snapshot for present day and NOT selected 1`] = `
+<div>
+  <button
+    class="year is-today"
+    type="button"
+    value="2020-01-01T00:00:00.000Z"
+  >
+    2020
+  </button>
+</div>
+`;
+
+exports[`<Year/> should match snapshot for present day and selected 1`] = `
+<div>
+  <button
+    class="year selected is-today"
+    type="button"
+    value="2020-01-01T00:00:00.000Z"
+  >
+    2020
+  </button>
+</div>
+`;
+
+exports[`<YearPicker /> should match snapshot 1`] = `
+<div>
+  <div
+    class="year-picker"
+  >
+    <button
+      class="year selected is-today"
+      type="button"
+      value="2020-01-01T00:00:00.000Z"
+    >
+      2020
+    </button>
+    <button
+      class="year"
+      type="button"
+      value="2021-01-01T00:00:00.000Z"
+    >
+      2021
+    </button>
+    <button
+      class="year"
+      type="button"
+      value="2022-01-01T00:00:00.000Z"
+    >
+      2022
+    </button>
+    <button
+      class="year"
+      type="button"
+      value="2023-01-01T00:00:00.000Z"
+    >
+      2023
+    </button>
+    <button
+      class="year"
+      type="button"
+      value="2024-01-01T00:00:00.000Z"
+    >
+      2024
+    </button>
+    <button
+      class="year"
+      type="button"
+      value="2025-01-01T00:00:00.000Z"
+    >
+      2025
+    </button>
+    <button
+      class="year"
+      type="button"
+      value="2026-01-01T00:00:00.000Z"
+    >
+      2026
+    </button>
+    <button
+      class="year"
+      type="button"
+      value="2027-01-01T00:00:00.000Z"
+    >
+      2027
+    </button>
+    <button
+      class="year"
+      type="button"
+      value="2028-01-01T00:00:00.000Z"
+    >
+      2028
+    </button>
+    <button
+      class="year"
+      type="button"
+      value="2029-01-01T00:00:00.000Z"
+    >
+      2029
+    </button>
+    <button
+      class="year"
+      type="button"
+      value="2030-01-01T00:00:00.000Z"
+    >
+      2030
+    </button>
+    <button
+      class="year"
+      type="button"
+      value="2031-01-01T00:00:00.000Z"
+    >
+      2031
+    </button>
+  </div>
+</div>
+`;

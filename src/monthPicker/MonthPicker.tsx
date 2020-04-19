@@ -1,7 +1,7 @@
 import React from "react";
+import moment from "moment";
 
 import { MonthPickerProps, Month } from "./";
-import moment from "moment";
 
 export const MonthPicker: React.FunctionComponent<MonthPickerProps> = ({
   date,
@@ -13,7 +13,7 @@ export const MonthPicker: React.FunctionComponent<MonthPickerProps> = ({
       <Month
         key={i + 1}
         date={moment(viewDate).month(i)}
-        selected={date?.month() === i}
+        selected={date?.month() === i && date?.isSame(viewDate, "year")}
         onPick={onPick}
       />
     ))}

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import moment from "moment";
 
 import { noop } from "../utils";
 import { PickerProps, View } from "./types";
 import { MonthPicker } from "../monthPicker";
 import { DayPicker } from "../dayPicker";
+import { YearPicker } from "../yearPicker";
 import "./Picker.scss";
-import moment from "moment";
 
 export const Picker: React.FunctionComponent<PickerProps> = ({
   date,
@@ -18,6 +19,10 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
   const handleMonthPick = (e: React.MouseEvent<HTMLButtonElement>) => {
     setViewDate(moment(e.currentTarget.value));
     setView(View.Day);
+  };
+  const handleYearPick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setViewDate(moment(e.currentTarget.value));
+    setView(View.Month);
   };
 
   const changeView = () => {
@@ -46,7 +51,9 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
             onPick={handleMonthPick}
           />
         )}
-        {view === View.Year && "Year view"}
+        {view === View.Year && (
+          <YearPicker date={date} viewDate={viewDate} onPick={handleYearPick} />
+        )}
       </div>
     </div>
   );
