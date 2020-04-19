@@ -1,7 +1,8 @@
 import React from "react";
-import moment, { Moment } from "moment";
+import { Moment } from "moment";
 
 import { View } from "./types";
+import { getDecadeStart } from "../utils";
 
 export interface SwitchProps {
   viewDate: Moment;
@@ -9,19 +10,17 @@ export interface SwitchProps {
   onClick: () => void;
 }
 
-export const Switch: React.FunctionComponent<SwitchProps> = ({
+export const ViewSwitcher: React.FunctionComponent<SwitchProps> = ({
   viewDate,
   view,
   onClick,
 }) => {
-  const decadeStart = Math.floor(moment(viewDate).get("year") / 10) * 10;
+  const decadeStart = getDecadeStart(viewDate);
   return (
     <div className="switch" onClick={onClick}>
       {view === View.Year
         ? `${decadeStart} - ${decadeStart + 11}`
-        : viewDate.format(
-            view === View.Day ? "MMMM YYYY" : view === View.Month ? "YYYY" : "",
-          )}
+        : viewDate.format(view === View.Month ? "YYYY" : "MMMM YYYY")}
     </div>
   );
 };

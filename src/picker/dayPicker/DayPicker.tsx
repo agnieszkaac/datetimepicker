@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 
-import { DayPickerProps, Day } from "./";
+import { DayPickerProps, Day } from "./index";
 
 export const DayPicker: React.FunctionComponent<DayPickerProps> = ({
   date,

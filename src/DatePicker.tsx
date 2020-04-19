@@ -19,7 +19,6 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   const inputRef: Ref<HTMLInputElement> = useRef(null);
 
   const [date, setDate] = useState(getMomentDate(value));
-  console.log("DatePicker date", date);
   const [pickerOpen, setPickerOpen] = useState(false);
 
   //TODO: extract clickListener to utils

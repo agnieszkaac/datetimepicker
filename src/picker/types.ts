@@ -5,7 +5,7 @@ import { MomentDate } from "../types";
 export interface PickerProps {
   date: MomentDate;
   pickerRef: Ref<HTMLDivElement>;
-  onPick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onPick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export enum View {

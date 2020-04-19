@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import cx from "classnames";
 
-import { DayProps } from "./";
+import { DayProps } from "./index";
 import "./DayPicker.scss";
 
 export const Day: React.FunctionComponent<DayProps> = ({

@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import cx from "classnames";
 
-import { MonthProps } from "./";
+import { MonthProps } from "./index";
 import "./MonthPicker.scss";
 
 export const Month: React.FunctionComponent<MonthProps> = ({

@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 
-import { MonthPickerProps, Month } from "./";
+import { MonthPickerProps, Month } from "./index";
 
 export const MonthPicker: React.FunctionComponent<MonthPickerProps> = ({
   date,
