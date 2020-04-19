@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import moment, { Moment } from "moment";
+import React, { useState } from "react";
+import moment from "moment";
 
 import { noop } from "../utils";
 import { PickerProps, View } from "./types";
@@ -9,14 +9,6 @@ import { YearPicker } from "../yearPicker";
 import "./Picker.scss";
 import { Switch } from "./Switch";
 
-function usePrevious(value: any) {
-  const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-}
-
 export const Picker: React.FunctionComponent<PickerProps> = ({
   date,
   pickerRef,
@@ -24,7 +16,6 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
 }) => {
   const [view, setView] = useState(View.Day);
   const [viewDate, setViewDate] = useState(moment(date));
-  const prevViewDate = usePrevious(viewDate);
 
   const handleMonthPick = (e: React.MouseEvent<HTMLButtonElement>) => {
     setViewDate(moment(e.currentTarget.value));
@@ -46,12 +37,12 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
   };
 
   const changeRange = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(prevViewDate.add(e.currentTarget.value, View.Year));
+    const copyViewDate = { ...viewDate };
     if (view === View.Day) {
-      setViewDate(prevViewDate.add(e.currentTarget.value, View.Month));
+      setViewDate(moment(copyViewDate).add(e.currentTarget.value, View.Month));
     }
     if (view === View.Month) {
-      setViewDate(prevViewDate.add(e.currentTarget.value, View.Year)) ;
+      setViewDate(moment(copyViewDate).add(e.currentTarget.value, View.Year));
     }
   };
 
