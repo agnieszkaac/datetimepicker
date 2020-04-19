@@ -2,6 +2,7 @@ import React from "react";
 import moment from "moment";
 
 import { Year, YearPickerProps } from "./index";
+import { getDecadeStart } from "../../utils";
 import "./YearPicker.scss";
 
 export const YearPicker: React.FunctionComponent<YearPickerProps> = ({
@@ -9,7 +10,7 @@ export const YearPicker: React.FunctionComponent<YearPickerProps> = ({
   viewDate,
   onPick,
 }) => {
-  const decadeStart = Math.floor(moment(viewDate).get("year") / 10) * 10;
+  const decadeStart = getDecadeStart(viewDate);
   return (
     <div className="year-picker">
       {Array.from({ length: 12 }, (_e, i) => (

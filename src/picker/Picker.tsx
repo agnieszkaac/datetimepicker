@@ -23,36 +23,18 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
       return;
     }
     setViewDate(moment(e.currentTarget.value));
-    switchViewDown();
+    switchView(-1);
   };
 
-  const switchViewUp = () =>
-    setView(
-      view === View.Day
-        ? View.Month
-        : view === View.Month
-        ? View.Year
-        : View.Year,
-    );
-
-  const switchViewDown = () =>
-    setView(
-      view === View.Year
-        ? View.Month
-        : view === View.Month
-        ? View.Day
-        : View.Day,
-    );
+  const switchView = (v: number) => setView(view + v);
 
   const changeRange = (e: React.MouseEvent<HTMLButtonElement>) => {
-    let range;
     if (view === View.Day) {
-      range = View.Month;
+      setViewDate(moment({ ...viewDate }).add(e.currentTarget.value, "month"));
     }
     if (view === View.Month) {
-      range = View.Year;
+      setViewDate(moment({ ...viewDate }).add(e.currentTarget.value, "year"));
     }
-    setViewDate(moment({ ...viewDate }).add(e.currentTarget.value, range));
   };
 
   const PickerComponent =
@@ -64,7 +46,11 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
 
   return (
     <div className="picker" ref={pickerRef}>
-      <ViewSwitcher viewDate={viewDate} view={view} onClick={switchViewUp} />
+      <ViewSwitcher
+        viewDate={viewDate}
+        view={view}
+        onClick={() => switchView(+1)}
+      />
       <div className="wrapper">
         <RangeChanger value={-1} onClick={changeRange} />
         <PickerComponent date={date} viewDate={viewDate} onPick={handlePick} />

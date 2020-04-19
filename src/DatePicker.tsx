@@ -4,12 +4,13 @@ import moment from "moment";
 import { Picker } from "./picker/Picker";
 import { Input } from "./input/Input";
 import { noop, getMomentDate } from "./utils";
-import { DatePickerProps } from "./types";
+import { DatePickerProps } from "./";
 import "./DatePicker.scss";
 
 export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   value,
   hideOnPick = false,
+  displayFormat,
   onClick = noop,
   onBlur = noop,
   onPick = noop,
@@ -53,6 +54,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
     <div ref={wrapperRef} className="wrapper">
       <Input
         value={date}
+        format={displayFormat}
         inputRef={inputRef}
         onClick={onClick}
         onBlur={onBlur}
