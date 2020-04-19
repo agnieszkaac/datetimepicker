@@ -54,7 +54,7 @@ exports[`<MonthPicker /> should match snapshot 1`] = `
     class="month-picker"
   >
     <button
-      class="month selected"
+      class="month"
       type="button"
       value="1"
     >
@@ -124,7 +124,7 @@ exports[`<MonthPicker /> should match snapshot 1`] = `
       Jan
     </button>
     <button
-      class="month is-today"
+      class="month"
       type="button"
       value="11"
     >

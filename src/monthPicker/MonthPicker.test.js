@@ -2,6 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 
 import { Month, MonthPicker } from "./";
+import moment from "moment";
 
 const onPick = jest.fn();
 jest.mock("moment", () => (value) => ({
@@ -39,7 +40,7 @@ describe("<Month/> should", () => {
 
 describe("<MonthPicker /> should", () => {
   it("match snapshot", () => {
-    const { container } = render(<MonthPicker date={"1"} onPick={onPick} />);
+    const { container } = render(<MonthPicker onPick={onPick} />);
     expect(container).toMatchSnapshot();
   });
 });
