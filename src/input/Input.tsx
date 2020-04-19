@@ -1,11 +1,12 @@
 import React from "react";
 
-import { noop } from "../utils";
-import { InputProps } from "../types";
+import { getStringDate, noop } from "../utils";
+import { InputProps } from "./types";
 import "./Input.scss";
 
 export const Input: React.FunctionComponent<InputProps> = ({
   value,
+  format,
   inputRef,
   onClick = noop,
   onBlur = noop,
@@ -15,7 +16,7 @@ export const Input: React.FunctionComponent<InputProps> = ({
     name="datepicker-input"
     className="datepicker-input"
     ref={inputRef}
-    value={value}
+    value={getStringDate(value, format)}
     onClick={onClick}
     onBlur={onBlur}
     onChange={onChange}

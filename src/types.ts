@@ -1,21 +1,14 @@
 import React, { Ref } from "react";
+import { Moment } from "moment";
 
-export interface InputProps {
-  value?: string;
-  inputRef: Ref<HTMLInputElement>;
-  onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+//TODO: better naming for input date type, and internal date type
+export type DateType = Moment | Date | string;
 
-export interface PickerProps {
-  value: string;
-  pickerRef: Ref<HTMLDivElement>;
-  onPick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-}
+export type MomentDate = Moment | undefined;
 
+//props
 export interface DatePickerProps {
-  value?: string;
+  value?: DateType;
   hideOnPick?: boolean;
   onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
