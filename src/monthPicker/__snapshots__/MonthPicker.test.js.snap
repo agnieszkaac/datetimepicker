@@ -1,47 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Month/> should match snapshot for NOT present month, selected 1`] = `
-<div>
-  <button
-    class="month selected"
-    type="button"
-    value="2"
-  >
-    Jan
-  </button>
-</div>
-`;
-
-exports[`<Month/> should match snapshot for present month, NOT selected 1`] = `
+exports[`<Month/> should match snapshot for NOT present day and NOT selected 1`] = `
 <div>
   <button
     class="month"
     type="button"
-    value="1"
+    value="2020-02-01T00:00:00.000Z"
   >
-    Jan
+    Feb
   </button>
 </div>
 `;
 
-exports[`<Month/> should match snapshot for present month, selected 1`] = `
+exports[`<Month/> should match snapshot for NOT present day and selected 1`] = `
 <div>
   <button
     class="month selected"
     type="button"
-    value="1"
+    value="2020-02-01T00:00:00.000Z"
+  >
+    Feb
+  </button>
+</div>
+`;
+
+exports[`<Month/> should match snapshot for present day and NOT selected 1`] = `
+<div>
+  <button
+    class="month is-today"
+    type="button"
+    value="2020-01-01T00:00:00.000Z"
   >
     Jan
   </button>
 </div>
 `;
 
-exports[`<Month/> should math snapshot for NOT present month, NOT selected 1`] = `
+exports[`<Month/> should match snapshot for present day and selected 1`] = `
 <div>
   <button
-    class="month"
+    class="month selected is-today"
     type="button"
-    value="2"
+    value="2020-01-01T00:00:00.000Z"
   >
     Jan
   </button>
@@ -54,88 +54,88 @@ exports[`<MonthPicker /> should match snapshot 1`] = `
     class="month-picker"
   >
     <button
-      class="month"
+      class="month selected is-today"
       type="button"
-      value="1"
+      value="2020-01-01T00:00:00.000Z"
     >
       Jan
     </button>
     <button
       class="month"
       type="button"
-      value="2"
+      value="2020-02-01T00:00:00.000Z"
     >
-      Jan
+      Feb
     </button>
     <button
       class="month"
       type="button"
-      value="3"
+      value="2020-03-01T00:00:00.000Z"
     >
-      Jan
+      Mar
     </button>
     <button
       class="month"
       type="button"
-      value="4"
+      value="2020-03-31T23:00:00.000Z"
     >
-      Jan
+      Apr
     </button>
     <button
       class="month"
       type="button"
-      value="5"
+      value="2020-04-30T23:00:00.000Z"
     >
-      Jan
+      May
     </button>
     <button
       class="month"
       type="button"
-      value="6"
+      value="2020-05-31T23:00:00.000Z"
     >
-      Jan
+      Jun
     </button>
     <button
       class="month"
       type="button"
-      value="7"
+      value="2020-06-30T23:00:00.000Z"
     >
-      Jan
+      Jul
     </button>
     <button
       class="month"
       type="button"
-      value="8"
+      value="2020-07-31T23:00:00.000Z"
     >
-      Jan
+      Aug
     </button>
     <button
       class="month"
       type="button"
-      value="9"
+      value="2020-08-31T23:00:00.000Z"
     >
-      Jan
+      Sep
     </button>
     <button
       class="month"
       type="button"
-      value="10"
+      value="2020-09-30T23:00:00.000Z"
     >
-      Jan
+      Oct
     </button>
     <button
       class="month"
       type="button"
-      value="11"
+      value="2020-11-01T00:00:00.000Z"
     >
-      Jan
+      Nov
     </button>
     <button
       class="month"
       type="button"
-      value="12"
+      value="2020-12-01T00:00:00.000Z"
     >
-      Jan
+      Dec
     </button>
   </div>
 </div>

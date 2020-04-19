@@ -1,13 +1,14 @@
 import React from "react";
-import { MomentDate } from "../types";
+import { Moment } from "moment";
 
 export interface MonthProps {
-  value: number;
+  date: Moment;
   selected: boolean;
   onPick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface MonthPickerProps {
-  date: MomentDate;
+  date: Moment | undefined;
+  viewDate: Moment;
   onPick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }

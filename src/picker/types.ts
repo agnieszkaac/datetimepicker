@@ -7,3 +7,9 @@ export interface PickerProps {
   pickerRef: Ref<HTMLDivElement>;
   onPick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
+
+export enum View {
+  Day = "day",
+  Month = "month",
+  Year = "year",
+}

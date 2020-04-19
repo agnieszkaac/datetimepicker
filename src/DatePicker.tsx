@@ -1,11 +1,11 @@
 import React, { Ref, useEffect, useRef, useState } from "react";
+import moment from "moment";
 
 import { Picker } from "./picker/Picker";
 import { Input } from "./input/Input";
 import { noop, getMomentDate } from "./utils";
 import { DatePickerProps } from "./types";
 import "./DatePicker.scss";
-import moment from "moment";
 
 export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   value,
@@ -19,7 +19,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   const inputRef: Ref<HTMLInputElement> = useRef(null);
 
   const [date, setDate] = useState(getMomentDate(value));
-  console.log("DatePicker", date);
+  console.log("DatePicker date", date);
   const [pickerOpen, setPickerOpen] = useState(false);
 
   //TODO: extract clickListener to utils
@@ -42,7 +42,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   }, [pickerOpen]);
 
   const handlePick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setDate(moment(e.currentTarget.value, "MM"));
+    setDate(moment(e.currentTarget.value));
     onPick(e);
   };
 

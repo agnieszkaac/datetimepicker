@@ -6,19 +6,19 @@ import { DayProps } from "./";
 import "./DayPicker.scss";
 
 export const Day: React.FunctionComponent<DayProps> = ({
-  value,
+  date,
   selected,
   onPick,
 }) => {
-  const isToday = moment().date().toString() === value;
+  const isToday = moment(date).isSame(moment(), "day");
   return (
     <button
       type="button"
+      value={moment(date).toISOString()}
       className={cx("day", { selected: selected, "is-today": isToday })}
       onClick={onPick}
-      value={value}
     >
-      {value}
+      {moment(date).date()}
     </button>
   );
 };
