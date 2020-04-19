@@ -1,0 +1,30 @@
+$size: 45px;
+
+.year-picker {
+  display: grid;
+  grid-template-columns: repeat(4, $size);
+  grid-gap: 3px;
+}
+
+.year {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $size;
+  width: $size;
+  background-color: white;
+  color: black;
+  border: none;
+  outline: none;
+
+  &:hover {
+    background-color: silver;
+  }
+  &.selected {
+    background-color: aquamarine;
+  }
+  &.is-today {
+    border: 1px solid blue;
+  }
+}
+

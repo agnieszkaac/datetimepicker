@@ -2,22 +2,22 @@ import React from "react";
 import { render } from "@testing-library/react";
 import moment from "moment";
 
-import { Month, MonthPicker } from "./";
+import { Year, YearPicker } from "./";
 
 const onPick = jest.fn();
 Date.now = jest.fn(() => Date.parse("2020-01-01"));
 
-describe("<Month/> should", () => {
+describe("<Year/> should", () => {
   describe("match snapshot for present day", () => {
     it("and NOT selected", () => {
       const { container } = render(
-        <Month date={moment()} selected={false} onPick={onPick} />,
+        <Year date={moment()} selected={false} onPick={onPick} />,
       );
       expect(container).toMatchSnapshot();
     });
     it("and selected", () => {
       const { container } = render(
-        <Month date={moment()} selected={true} onPick={onPick} />,
+        <Year date={moment()} selected={true} onPick={onPick} />,
       );
       expect(container).toMatchSnapshot();
     });
@@ -25,8 +25,8 @@ describe("<Month/> should", () => {
   describe("match snapshot for NOT present day", () => {
     it("and NOT selected", () => {
       const { container } = render(
-        <Month
-          date={moment().add(1, "month")}
+        <Year
+          date={moment().add(1, "year")}
           selected={false}
           onPick={onPick}
         />,
@@ -36,21 +36,17 @@ describe("<Month/> should", () => {
 
     it("and selected", () => {
       const { container } = render(
-        <Month
-          date={moment().add(1, "month")}
-          selected={true}
-          onPick={onPick}
-        />,
+        <Year date={moment().add(1, "year")} selected={true} onPick={onPick} />,
       );
       expect(container).toMatchSnapshot();
     });
   });
 });
 
-describe("<MonthPicker /> should", () => {
+describe("<YearPicker /> should", () => {
   it("match snapshot", () => {
     const { container } = render(
-      <MonthPicker date={moment()} viewDate={moment()} onPick={onPick} />,
+      <YearPicker date={moment()} viewDate={moment()} onPick={onPick} />,
     );
     expect(container).toMatchSnapshot();
   });
