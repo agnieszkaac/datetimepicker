@@ -1,4 +1,4 @@
-import moment from "moment";
+import moment, { Moment } from "moment";
 
 import { DateType, MomentDate } from "./types";
 
@@ -20,3 +20,6 @@ export const getStringDate = (
   }
   return moment(value).format(format);
 };
+
+export const getDecadeStart = (date: Moment) =>
+  Math.floor(moment(date).get("year") / 10) * 10;

@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import cx from "classnames";
 
-import { YearProps } from "./";
+import { YearProps } from "./index";
 
 export const Year: React.FunctionComponent<YearProps> = ({
   date,

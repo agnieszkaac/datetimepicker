@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 
-import { Year, YearPickerProps } from "./";
+import { Year, YearPickerProps } from "./index";
 import "./YearPicker.scss";
 
 export const YearPicker: React.FunctionComponent<YearPickerProps> = ({

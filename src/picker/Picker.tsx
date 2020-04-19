@@ -1,31 +1,32 @@
 import React, { useState } from "react";
 import moment from "moment";
 
-import { noop } from "../utils";
 import { PickerProps, View } from "./types";
-import { MonthPicker } from "../monthPicker";
-import { DayPicker } from "../dayPicker";
-import { YearPicker } from "../yearPicker";
+import { MonthPicker } from "./monthPicker";
+import { DayPicker } from "./dayPicker";
+import { YearPicker } from "./yearPicker";
+import { ViewSwitcher } from "./ViewSwitcher";
+import { RangeChanger } from "./RangeChanger";
 import "./Picker.scss";
 
 export const Picker: React.FunctionComponent<PickerProps> = ({
   date,
   pickerRef,
-  onPick = noop,
+  onPick,
 }) => {
   const [view, setView] = useState(View.Day);
   const [viewDate, setViewDate] = useState(moment(date));
 
-  const handleMonthPick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handlePick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (view === View.Day) {
+      onPick(e);
+      return;
+    }
     setViewDate(moment(e.currentTarget.value));
-    setView(View.Day);
-  };
-  const handleYearPick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setViewDate(moment(e.currentTarget.value));
-    setView(View.Month);
+    switchViewDown();
   };
 
-  const changeView = () => {
+  const switchViewUp = () =>
     setView(
       view === View.Day
         ? View.Month
@@ -33,27 +34,41 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
         ? View.Year
         : View.Year,
     );
+
+  const switchViewDown = () =>
+    setView(
+      view === View.Year
+        ? View.Month
+        : view === View.Month
+        ? View.Day
+        : View.Day,
+    );
+
+  const changeRange = (e: React.MouseEvent<HTMLButtonElement>) => {
+    let range;
+    if (view === View.Day) {
+      range = View.Month;
+    }
+    if (view === View.Month) {
+      range = View.Year;
+    }
+    setViewDate(moment({ ...viewDate }).add(e.currentTarget.value, range));
   };
+
+  const PickerComponent =
+    view === View.Day
+      ? DayPicker
+      : view === View.Month
+      ? MonthPicker
+      : YearPicker;
 
   return (
     <div className="picker" ref={pickerRef}>
-      <div className="view-changer" onClick={changeView}>
-        {viewDate.format("MMMM YYYY")}
-      </div>
+      <ViewSwitcher viewDate={viewDate} view={view} onClick={switchViewUp} />
       <div className="wrapper">
-        {view === View.Day && (
-          <DayPicker date={date} viewDate={viewDate} onPick={onPick} />
-        )}
-        {view === View.Month && (
-          <MonthPicker
-            date={date}
-            viewDate={viewDate}
-            onPick={handleMonthPick}
-          />
-        )}
-        {view === View.Year && (
-          <YearPicker date={date} viewDate={viewDate} onPick={handleYearPick} />
-        )}
+        <RangeChanger value={-1} onClick={changeRange} />
+        <PickerComponent date={date} viewDate={viewDate} onPick={handlePick} />
+        <RangeChanger value={1} onClick={changeRange} />
       </div>
     </div>
   );
