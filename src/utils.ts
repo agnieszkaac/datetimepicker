@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import moment, { Moment } from "moment";
 
 import { DateType, MomentDate } from "./types";
+import { View } from "./picker/types";
 
 export const noop = () => null;
 
@@ -33,3 +34,13 @@ export const togglePickerOpen = (
     };
   }, [pickerOpen]);
 };
+
+export const getDecadeLabel = (date: Moment) => {
+  const decadeStart = getDecadeStart(date);
+  return `${decadeStart} - ${decadeStart + 11}`;
+};
+
+export const getViewLabel = (view: View, viewDate: Moment) =>
+  view === View.Year
+    ? getDecadeLabel(viewDate)
+    : viewDate.format(view === View.Month ? "YYYY" : "MMMM YYYY");
