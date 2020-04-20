@@ -10,3 +10,27 @@
   border: 1px solid #e2e2e2;
   border-radius: 2px;
 }
+
+.day,
+.month,
+.year,
+.view-changer,
+.range-changer {
+  background-color: white;
+  color: black;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+
+  &:hover {
+    background: #e2e2e2;
+  }
+  &.selected {
+    background-color: #868686;
+    color: white;
+  }
+  &.is-today {
+    border: 1px solid #afafaf;
+  }
+}

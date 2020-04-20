@@ -1,38 +1,20 @@
-$backgroundHover: #e2e2e2;
-
 .view-switcher {
   display: flex;
   height: 35px;
   width: 100%;
-  border-bottom: 1px solid $backgroundHover;
+  border-bottom: 1px solid #e2e2e2;
   margin-bottom: 4px;
   padding-bottom: 4px;
 
   .view-changer {
     flex: 1;
     text-align: center;
-    border: none;
-    background: white;
-    outline: none;
     font-size: 16px;
     padding: 0;
-
-    &:hover {
-      background: $backgroundHover;
-      border-radius: 2px;
-    }
   }
   .range-changer {
     width: 35px;
-    border: none;
-    background: white;
-    outline: none;
     padding: 0;
     color: #A7A5A5;
-
-    &:hover {
-      background: $backgroundHover;
-      border-radius: 2px;
-    }
   }
 }
