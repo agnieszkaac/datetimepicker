@@ -6,7 +6,7 @@ import "./Input.scss";
 
 export const Input: React.FunctionComponent<InputProps> = ({
   value,
-  format,
+  format = "MM-DD-YYYY",
   inputRef,
   onClick = noop,
   onBlur = noop,

@@ -9,7 +9,7 @@ export interface PickerProps {
 }
 
 export enum View {
-  Day = "day",
-  Month = "month",
-  Year = "year",
+  Day,
+  Month,
+  Year,
 }

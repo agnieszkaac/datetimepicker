@@ -4,13 +4,13 @@ import { Moment } from "moment";
 import { View } from "./types";
 import { getDecadeStart } from "../utils";
 
-export interface SwitchProps {
+export interface ViewSwitcherProps {
   viewDate: Moment;
   view: View;
   onClick: () => void;
 }
 
-export const ViewSwitcher: React.FunctionComponent<SwitchProps> = ({
+export const ViewSwitcher: React.FunctionComponent<ViewSwitcherProps> = ({
   viewDate,
   view,
   onClick,

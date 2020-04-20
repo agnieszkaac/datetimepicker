@@ -11,10 +11,7 @@ export const getMomentDate = (value?: DateType): MomentDate => {
   return moment(value);
 };
 
-export const getStringDate = (
-  value: MomentDate,
-  format: string = "DD-MMM-YYYY",
-): string => {
+export const getStringDate = (value: MomentDate, format: string): string => {
   if (!value) {
     return "";
   }

@@ -1,4 +1,4 @@
-import React, { Ref } from "react";
+import React from "react";
 import { Moment } from "moment";
 
 //TODO: better naming for input date type, and internal date type
@@ -10,6 +10,7 @@ export type MomentDate = Moment | undefined;
 export interface DatePickerProps {
   value?: DateType;
   hideOnPick?: boolean;
+  displayFormat?: string;
   onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onPick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
