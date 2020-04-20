@@ -1,0 +1,20 @@
+.view-switcher {
+  display: flex;
+  height: 35px;
+  width: 100%;
+  border-bottom: 1px solid #e2e2e2;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+
+  .view-changer {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    padding: 0;
+  }
+  .range-changer {
+    width: 35px;
+    padding: 0;
+    color: #A7A5A5;
+  }
+}

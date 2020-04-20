@@ -7,24 +7,7 @@ $size: 40px;
 }
 
 .month {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: $size;
   width: $size;
-  background-color: white;
-  color: black;
-  border: none;
-  outline: none;
-
-  &:hover {
-    background-color: silver;
-  }
-  &.selected {
-    background-color: aquamarine;
-  }
-  &.is-today {
-    border: 1px solid blue;
-  }
 }
 

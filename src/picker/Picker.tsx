@@ -5,8 +5,7 @@ import { PickerProps, View } from "./types";
 import { MonthPicker } from "./monthPicker";
 import { DayPicker } from "./dayPicker";
 import { YearPicker } from "./yearPicker";
-import { ViewSwitcher } from "./ViewSwitcher";
-import { RangeChanger } from "./RangeChanger";
+import { ViewChanger } from "./viewChanger/ViewChanger";
 import "./Picker.scss";
 
 export const Picker: React.FunctionComponent<PickerProps> = ({
@@ -26,16 +25,21 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
     switchView(-1);
   };
 
-  const switchView = (v: number) => setView(view + v);
-
-  const changeRange = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (view === View.Day) {
-      setViewDate(moment({ ...viewDate }).add(e.currentTarget.value, "month"));
-    }
-    if (view === View.Month) {
-      setViewDate(moment({ ...viewDate }).add(e.currentTarget.value, "year"));
+  const switchView = (v = 1) => {
+    if ((v === 1 && view < View.Year) || (v === -1 && view > View.Day)) {
+      setView(view + v);
     }
   };
+
+  const switchRange = (e: React.MouseEvent<HTMLButtonElement>) =>
+    setViewDate(
+      moment({ ...viewDate }).add(
+        view === View.Year
+          ? Number(e.currentTarget.value) * 10
+          : e.currentTarget.value,
+        view === View.Day ? "month" : "year",
+      ),
+    );
 
   const PickerComponent =
     view === View.Day
@@ -46,16 +50,13 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
 
   return (
     <div className="picker" ref={pickerRef}>
-      <ViewSwitcher
-        viewDate={viewDate}
+      <ViewChanger
         view={view}
-        onClick={() => switchView(+1)}
+        viewDate={viewDate}
+        onViewSwitch={switchView}
+        onRangeSwitch={switchRange}
       />
-      <div className="wrapper">
-        <RangeChanger value={-1} onClick={changeRange} />
-        <PickerComponent date={date} viewDate={viewDate} onPick={handlePick} />
-        <RangeChanger value={1} onClick={changeRange} />
-      </div>
+      <PickerComponent date={date} viewDate={viewDate} onPick={handlePick} />
     </div>
   );
 };

@@ -1,9 +1,9 @@
-import React, { Ref, useEffect, useRef, useState } from "react";
+import React, { Ref, useRef, useState } from "react";
 import moment from "moment";
 
 import { Picker } from "./picker/Picker";
 import { Input } from "./input/Input";
-import { noop, getMomentDate } from "./utils";
+import { noop, getMomentDate, togglePickerOpen } from "./utils";
 import { DatePickerProps } from "./";
 import "./DatePicker.scss";
 
@@ -22,24 +22,18 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   const [date, setDate] = useState(getMomentDate(value));
   const [pickerOpen, setPickerOpen] = useState(false);
 
-  //TODO: extract clickListener to utils
   const handleClickListener = (event: MouseEvent) => {
     if (!wrapperRef.current?.contains(event.target as Node)) {
       setPickerOpen(false);
     }
-    if (inputRef.current?.contains(event.target as Node)) {
-      setPickerOpen(!pickerOpen);
-    }
-    if (pickerRef.current?.contains(event.target as Node) && hideOnPick) {
+    if (
+      inputRef.current?.contains(event.target as Node) ||
+      (pickerRef.current?.contains(event.target as Node) && hideOnPick)
+    ) {
       setPickerOpen(!pickerOpen);
     }
   };
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickListener);
-    return () => {
-      document.removeEventListener("mousedown", handleClickListener);
-    };
-  }, [pickerOpen]);
+  togglePickerOpen(pickerOpen, handleClickListener);
 
   const handlePick = (e: React.MouseEvent<HTMLButtonElement>) => {
     setDate(moment(e.currentTarget.value));
