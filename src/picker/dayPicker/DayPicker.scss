@@ -16,4 +16,9 @@ $size: 30px;
 .day {
   height: $size;
   width: $size;
+
+  &.prev-day,
+  &.next-day {
+    color: #7f7f7f;
+  }
 }

@@ -3,7 +3,7 @@ import moment from "moment";
 
 import { PickerProps, View } from "./types";
 import { MonthPicker } from "./monthPicker";
-import { DayPicker}  from "./dayPicker";
+import { DayPicker } from "./dayPicker";
 import { YearPicker } from "./yearPicker";
 import { ViewChanger } from "./viewChanger/ViewChanger";
 import "./Picker.scss";

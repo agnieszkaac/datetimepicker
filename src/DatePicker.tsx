@@ -7,6 +7,7 @@ import { noop, getMomentDate, togglePickerOpen } from "./utils";
 import { DatePickerProps } from "./";
 import "./DatePicker.scss";
 
+moment.locale("pl");
 export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   value,
   hideOnPick = false,

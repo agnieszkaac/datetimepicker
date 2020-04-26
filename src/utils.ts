@@ -44,3 +44,8 @@ export const getViewLabel = (view: View, viewDate: Moment) =>
   view === View.Year
     ? getDecadeLabel(viewDate)
     : viewDate.format(view === View.Month ? "YYYY" : "MMMM YYYY");
+
+export const showDays = 42;
+
+export const prevDaysOffset = (dayOfWeek: number) =>
+  dayOfWeek === 0 ? 6 : dayOfWeek - 1;
