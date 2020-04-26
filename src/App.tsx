@@ -5,7 +5,8 @@ import { DatePicker } from "./";
 import "./App.scss";
 import moment from "moment";
 
-const date = moment().add(1, "month");
+// const date = moment().add(1, "month");
+const date = moment();
 
 ReactDOM.render(
   <div className="container">

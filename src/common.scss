@@ -1,0 +1,5 @@
+@mixin grid($size, $cols, $gap: 3px) {
+  display: grid;
+  grid-template-columns: repeat($cols, $size);
+  grid-gap: $gap;
+}

@@ -1,9 +1,16 @@
+@import "../../common";
+
 $size: 30px;
 
 .day-picker {
-  display: grid;
-  grid-template-columns: repeat(7, $size);
-  grid-gap: 3px;
+  @include grid($size, 7)
+}
+
+.day-of-week {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 5px 0;
 }
 
 .day {
