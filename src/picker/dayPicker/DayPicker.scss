@@ -1,24 +1,41 @@
 @import "../../common";
 
-$size: 30px;
+$size: $size-m;
 
 .day-picker {
-  @include grid($size, 7)
-}
+  @include grid($size, 7);
 
-.day-of-week {
-  text-align: center;
-  font-size: 12px;
-  font-weight: 600;
-  margin: 5px 0;
-}
+  .day-of-week {
+    margin: $spacing-m 0;
+    text-align: center;
+    font-size: $font-size-small;
+    line-height: $size-xs;
+    font-weight: 600;
+    vertical-align: middle;
+  }
+  .day {
+    height: $size;
+    width: $size;
+    color: $text;
+    background-color: $background;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    cursor: pointer;
 
-.day {
-  height: $size;
-  width: $size;
-
-  &.prev-day,
-  &.next-day {
-    color: #7f7f7f;
+    &:hover {
+      background-color: $background-hover;
+    }
+    &.prev-day,
+    &.next-day {
+      color: $text-light;
+    }
+    &.is-today {
+      border: 1px solid $border-today;
+    }
+    &.selected {
+      color: $text-selected;
+      background-color: $background-selected;
+    }
   }
 }

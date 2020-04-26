@@ -11,7 +11,12 @@ describe("<Day /> should", () => {
   describe("match snapshot for present day", () => {
     it("and NOT selected", () => {
       const { container } = render(
-        <Day date={moment()} selected={false} onPick={onPick} />,
+        <Day
+          date={moment()}
+          selected={false}
+          className="test"
+          onPick={onPick}
+        />,
       );
       expect(container).toMatchSnapshot();
     });
