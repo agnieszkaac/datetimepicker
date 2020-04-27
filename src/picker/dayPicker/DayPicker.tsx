@@ -3,7 +3,8 @@ import moment from "moment";
 import cx from "classnames";
 
 import { DayPickerProps, Day } from "./index";
-import { prevDaysOffset, showDaysNumber, weekDaysNumber } from "../../utils";
+import { prevDaysOffset, showDaysNumber } from "../../utils";
+import { WeekDays } from "./WeekDays";
 import "./DayPicker.scss";
 
 const DayPicker: React.FunctionComponent<DayPickerProps> = ({
@@ -16,11 +17,7 @@ const DayPicker: React.FunctionComponent<DayPickerProps> = ({
   const nextMonth = moment(viewDate).add(1, "M");
   return (
     <div className="day-picker">
-      {Array.from({ length: weekDaysNumber }, (_e, i) => (
-        <span key={i} className="day-of-week">
-          {moment().weekday(i).format("ddd")}
-        </span>
-      ))}
+      <WeekDays />
       {Array.from({ length: showDaysNumber }, (_e, i) => {
         const day = moment(viewDate).date(-prevOffset + i);
         return (

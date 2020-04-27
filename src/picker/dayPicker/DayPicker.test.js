@@ -3,14 +3,14 @@ import { render } from "@testing-library/react";
 import moment from "moment";
 
 import { DayPicker } from "./index";
+import "../../testUtils";
 
-const onPick = jest.fn();
-Date.now = jest.fn(() => Date.parse("2020-01-01"));
+const onPick = jest.fn((e) => {});
 
 describe("<DayPicker /> should", () => {
-  it("match snapshot", () => {
+  it("match snapshot when no date selected", () => {
     const { container } = render(
-      <DayPicker date={moment()} viewDate={moment()} onPick={onPick} />,
+      <DayPicker viewDate={moment()} onPick={onPick} />,
     );
     expect(container).toMatchSnapshot();
   });

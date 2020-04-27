@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WeekDays /> should match snapshot 1`] = `
+<div>
+  <span
+    class="day-of-week"
+  >
+    Sun
+  </span>
+  <span
+    class="day-of-week"
+  >
+    Mon
+  </span>
+  <span
+    class="day-of-week"
+  >
+    Tue
+  </span>
+  <span
+    class="day-of-week"
+  >
+    Wed
+  </span>
+  <span
+    class="day-of-week"
+  >
+    Thu
+  </span>
+  <span
+    class="day-of-week"
+  >
+    Fri
+  </span>
+  <span
+    class="day-of-week"
+  >
+    Sat
+  </span>
+</div>
+`;
