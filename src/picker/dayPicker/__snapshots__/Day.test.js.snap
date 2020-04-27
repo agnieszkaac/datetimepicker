@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Day /> should match snapshot for NOT present day and NOT selected 1`] = `
+<div>
+  <button
+    class="test day"
+    type="button"
+    value="2020-01-02T00:00:00.000Z"
+  >
+    2
+  </button>
+</div>
+`;
+
+exports[`<Day /> should match snapshot for NOT present day and selected 1`] = `
+<div>
+  <button
+    class="test day selected"
+    type="button"
+    value="2020-01-02T00:00:00.000Z"
+  >
+    2
+  </button>
+</div>
+`;
+
+exports[`<Day /> should match snapshot for present day and NOT selected 1`] = `
+<div>
+  <button
+    class="test day is-today"
+    type="button"
+    value="2020-01-01T00:00:00.000Z"
+  >
+    1
+  </button>
+</div>
+`;
+
+exports[`<Day /> should match snapshot for present day and selected 1`] = `
+<div>
+  <button
+    class="test day selected is-today"
+    type="button"
+    value="2020-01-01T00:00:00.000Z"
+  >
+    1
+  </button>
+</div>
+`;

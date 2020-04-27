@@ -4,6 +4,7 @@ import cx from "classnames";
 
 import { DayPickerProps, Day } from "./index";
 import { prevDaysOffset, showDaysNumber, weekDaysNumber } from "../../utils";
+import "./DayPicker.scss";
 
 const DayPicker: React.FunctionComponent<DayPickerProps> = ({
   date,
@@ -38,7 +39,7 @@ const DayPicker: React.FunctionComponent<DayPickerProps> = ({
               "prev-day": day.isSame(prevMonth, "M"),
               "next-day": day.isSame(nextMonth, "M"),
             })}
-            onPick={onPick}
+            onClick={onPick}
           />
         );
       })}
