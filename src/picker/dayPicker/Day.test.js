@@ -2,8 +2,11 @@ import React from "react";
 import moment from "moment";
 import { render, fireEvent } from "@testing-library/react";
 
-import { Day } from "./Day";
-import "../../testUtils";
+import { Day } from "./";
+import { setDate } from "../../testUtils";
+
+const today = "2020-01-01";
+setDate(today);
 
 let value = null;
 const onClick = jest.fn((e) => (value = e.target.value));
@@ -41,7 +44,7 @@ describe("<Day /> should", () => {
     });
   });
 
-  it("fire onClick with proper value when when clicked", () => {
+  it("fire onClick with proper value when clicked", () => {
     const { container } = render(<Day {...props} />);
     const button = container.querySelector(".day");
     const expectedValue = date.toISOString();
