@@ -44,12 +44,3 @@ export const getViewLabel = (view: View, viewDate: Moment) =>
   view === View.Year
     ? getDecadeLabel(viewDate)
     : viewDate.format(view === View.Month ? "YYYY" : "MMMM YYYY");
-
-//day picker
-export const weekDaysNumber = 7; //Always show 7 week days => columns
-export const showDaysNumber = 42; //Always show 6 weeks => rows
-
-//dayOfWeek is a number in [0 - 6] value range
-//return value should be in [1 - weekDaysNumber] value range
-export const prevDaysOffset = (dayOfWeek: number) =>
-  dayOfWeek === 0 ? weekDaysNumber : dayOfWeek;

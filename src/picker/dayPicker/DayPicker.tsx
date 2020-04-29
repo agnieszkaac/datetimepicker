@@ -1,37 +1,33 @@
 import React from "react";
-import moment from "moment";
+import moment, { Moment } from "moment";
 import cx from "classnames";
 
-import { DayPickerProps, Day } from "./index";
-import { prevDaysOffset, showDaysNumber } from "../../utils";
-import { WeekDays } from "./WeekDays";
+import { Day, WeekDays } from "./";
+import { showDaysNumber, viewData } from "./utils";
 import "./DayPicker.scss";
 
-const DayPicker: React.FunctionComponent<DayPickerProps> = ({
+export interface DayPickerProps {
+  date?: Moment;
+  viewDate: Moment;
+  onPick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+export const DayPicker: React.FunctionComponent<DayPickerProps> = ({
   date,
   viewDate,
   onPick,
 }) => {
-  const prevOffset = prevDaysOffset(moment(viewDate).date(1).weekday()) - 1; //0-6
-  const prevMonth = moment(viewDate).subtract(1, "M");
-  const nextMonth = moment(viewDate).add(1, "M");
+  const { offset, prevMonth, nextMonth, selected } = viewData(viewDate, date);
   return (
     <div className="day-picker">
       <WeekDays />
       {Array.from({ length: showDaysNumber }, (_e, i) => {
-        const day = moment(viewDate).date(-prevOffset + i);
+        const day = moment(viewDate).date(-offset + i);
         return (
           <Day
             key={i}
             date={day}
-            selected={
-              (date?.date() === prevMonth.daysInMonth() - prevOffset + i &&
-                date?.isSame(prevMonth, "M")) ||
-              (date?.date() === i - prevOffset &&
-                date?.isSame(viewDate, "M")) ||
-              (date?.date() === i - viewDate.daysInMonth() - prevOffset &&
-                date?.isSame(nextMonth, "M"))
-            }
+            selected={i === selected}
             className={cx({
               "prev-day": day.isSame(prevMonth, "M"),
               "next-day": day.isSame(nextMonth, "M"),
@@ -43,5 +39,3 @@ const DayPicker: React.FunctionComponent<DayPickerProps> = ({
     </div>
   );
 };
-
-export default DayPicker;

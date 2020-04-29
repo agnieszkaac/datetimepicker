@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<WeekDays /> should match snapshot 1`] = `
-<div>
+<DocumentFragment>
   <span
     class="day-of-week"
   >
@@ -37,5 +37,5 @@ exports[`<WeekDays /> should match snapshot 1`] = `
   >
     Sat
   </span>
-</div>
+</DocumentFragment>
 `;

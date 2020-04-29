@@ -6,6 +6,7 @@ import { Day } from "./";
 import { setDate } from "../../testUtils";
 
 const today = "2020-01-01";
+const displayValue = "1";
 setDate(today);
 
 let value = null;
@@ -19,39 +20,35 @@ const props = {
 };
 
 describe("<Day /> should", () => {
-  describe("match snapshot for present day", () => {
-    it("and NOT selected", () => {
-      const { container } = render(<Day {...props} />);
-      expect(container).toMatchSnapshot();
-    });
-    it("and selected", () => {
-      const { container } = render(<Day {...props} selected={true} />);
-      expect(container).toMatchSnapshot();
-    });
+  it("match snapshot", () => {
+    const { asFragment } = render(<Day {...props} />);
+    expect(asFragment()).toMatchSnapshot();
   });
 
-  describe("match snapshot for NOT present day", () => {
-    const nextDay = moment().add(1, "day");
-    it("and NOT selected", () => {
-      const { container } = render(<Day {...props} date={nextDay} />);
-      expect(container).toMatchSnapshot();
-    });
-    it("and selected", () => {
-      const { container } = render(
-        <Day {...props} date={nextDay} selected={true} />,
-      );
-      expect(container).toMatchSnapshot();
-    });
+  it("have correct display value for default date", () => {
+    const { getByTestId } = render(<Day {...props} />);
+    const day = getByTestId("day");
+
+    expect(day).toHaveTextContent(displayValue);
+  });
+
+  it("have selected class when selected", () => {
+    const { getByTestId, rerender } = render(<Day {...props} />);
+    const day = getByTestId("day");
+
+    expect(day).not.toHaveClass("selected");
+    rerender(<Day {...props} selected={true}/>)
+    expect(day).toHaveClass("selected");
   });
 
   it("fire onClick with proper value when clicked", () => {
-    const { container } = render(<Day {...props} />);
-    const button = container.querySelector(".day");
+    const { getByTestId } = render(<Day {...props} />);
+    const day = getByTestId("day");
     const expectedValue = date.toISOString();
 
-    expect(button).toHaveValue(expectedValue);
+    expect(day).toHaveValue(expectedValue);
 
-    fireEvent.click(button);
+    fireEvent.click(day);
 
     expect(onClick).toHaveBeenCalledTimes(1);
     expect(value).toBe(expectedValue);
