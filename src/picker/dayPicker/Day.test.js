@@ -37,7 +37,7 @@ describe("<Day /> should", () => {
     const day = getByTestId("day");
 
     expect(day).not.toHaveClass("selected");
-    rerender(<Day {...props} selected={true}/>)
+    rerender(<Day {...props} selected={true} />);
     expect(day).toHaveClass("selected");
   });
 

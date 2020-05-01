@@ -1,23 +1,26 @@
 import { useEffect } from "react";
 import moment, { Moment } from "moment";
 
-import { DateType, MomentDate } from "./types";
+import { ValueDate } from "./types";
 import { View } from "./picker/types";
 
 export const noop = () => null;
 
-export const getMomentDate = (value?: DateType): MomentDate => {
-  if (!value) {
-    return undefined;
+export const parseValueToMoment = (value?: ValueDate): Moment | undefined => {
+  if (value instanceof Date || typeof value === "string") {
+    return moment(value);
   }
-  return moment(value);
+  return value;
 };
 
-export const getStringDate = (value: MomentDate, format: string): string => {
+export const parseMomentToString = (
+  value: Moment | undefined,
+  format: string,
+): string => {
   if (!value) {
     return "";
   }
-  return moment(value).format(format);
+  return value.format(format);
 };
 
 export const getDecadeStart = (date: Moment) =>
@@ -44,3 +47,18 @@ export const getViewLabel = (view: View, viewDate: Moment) =>
   view === View.Year
     ? getDecadeLabel(viewDate)
     : viewDate.format(view === View.Month ? "YYYY" : "MMMM YYYY");
+
+export const configLocale = (
+  date: Moment | undefined,
+  locale: string,
+  dow?: number,
+) => {
+  date?.locale(locale);
+  dow &&
+    moment.updateLocale(locale, {
+      week: {
+        dow,
+        doy: 7 + dow - 1,
+      },
+    });
+};

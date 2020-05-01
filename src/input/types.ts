@@ -1,9 +1,8 @@
 import React, { Ref } from "react";
-
-import { MomentDate } from "../types";
+import { Moment } from "moment";
 
 export interface InputProps {
-  value: MomentDate;
+  value?: Moment;
   format?: string;
   inputRef: Ref<HTMLInputElement>;
   onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;

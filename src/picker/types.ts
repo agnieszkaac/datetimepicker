@@ -1,9 +1,10 @@
 import React, { Ref } from "react";
-
-import { MomentDate } from "../types";
+import { Moment } from "moment";
 
 export interface PickerProps {
-  date: MomentDate;
+  date: Moment | undefined;
+  locale: string;
+  firstDayOfWeek: number | undefined;
   pickerRef: Ref<HTMLDivElement>;
   onPick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }

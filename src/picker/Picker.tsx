@@ -6,15 +6,20 @@ import { MonthPicker } from "./monthPicker";
 import { DayPicker } from "./dayPicker";
 import { YearPicker } from "./yearPicker";
 import { ViewChanger } from "./viewChanger/ViewChanger";
+import { configLocale } from "../utils";
 import "./Picker.scss";
 
 export const Picker: React.FunctionComponent<PickerProps> = ({
   date,
+  locale,
+  firstDayOfWeek,
   pickerRef,
   onPick,
 }) => {
   const [view, setView] = useState(View.Day);
   const [viewDate, setViewDate] = useState(moment(date));
+
+  configLocale(viewDate, locale, firstDayOfWeek);
 
   const handlePick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (view === View.Day) {
@@ -33,7 +38,7 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
 
   const switchRange = (e: React.MouseEvent<HTMLButtonElement>) =>
     setViewDate(
-      moment({ ...viewDate }).add(
+      moment(viewDate).add(
         view === View.Year
           ? Number(e.currentTarget.value) * 10
           : e.currentTarget.value,

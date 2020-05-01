@@ -1,16 +1,23 @@
 import React, { Ref, useRef, useState } from "react";
 import moment from "moment";
 
+import { DatePickerProps } from "./";
 import { Picker } from "./picker/Picker";
 import { Input } from "./input/Input";
-import { noop, getMomentDate, togglePickerOpen } from "./utils";
-import { DatePickerProps } from "./";
+import {
+  noop,
+  parseValueToMoment,
+  togglePickerOpen,
+  configLocale,
+} from "./utils";
 import "./DatePicker.scss";
 
 export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   value,
   hideOnPick = false,
   displayFormat,
+  locale = "en",
+  firstDayOfWeek,
   onClick = noop,
   onBlur = noop,
   onPick = noop,
@@ -19,8 +26,10 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   const pickerRef: Ref<HTMLDivElement> = useRef(null);
   const inputRef: Ref<HTMLInputElement> = useRef(null);
 
-  const [date, setDate] = useState(getMomentDate(value));
+  const [date, setDate] = useState(parseValueToMoment(value));
   const [pickerOpen, setPickerOpen] = useState(false);
+
+  configLocale(date, locale);
 
   const handleClickListener = (event: MouseEvent) => {
     if (!wrapperRef.current?.contains(event.target as Node)) {
@@ -55,7 +64,13 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
         onChange={handleChange}
       />
       {pickerOpen && (
-        <Picker date={date} pickerRef={pickerRef} onPick={handlePick} />
+        <Picker
+          date={date}
+          locale={locale}
+          firstDayOfWeek={firstDayOfWeek}
+          pickerRef={pickerRef}
+          onPick={handlePick}
+        />
       )}
     </div>
   );
