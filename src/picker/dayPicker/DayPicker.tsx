@@ -19,23 +19,25 @@ export const DayPicker: React.FunctionComponent<DayPickerProps> = ({
 }) => {
   const { offset, prevMonth, nextMonth, selected } = viewData(viewDate, date);
   return (
-    <div className="day-picker">
+    <>
       <WeekDays />
-      {Array.from({ length: showDaysNumber }, (_e, i) => {
-        const day = moment(viewDate).date(-offset + i);
-        return (
-          <Day
-            key={i}
-            date={day}
-            selected={i === selected}
-            className={cx({
-              "prev-day": day.isSame(prevMonth, "M"),
-              "next-day": day.isSame(nextMonth, "M"),
-            })}
-            onClick={onPick}
-          />
-        );
-      })}
-    </div>
+      <div className="day-picker">
+        {Array.from({ length: showDaysNumber }, (_e, i) => {
+          const day = moment(viewDate).date(-offset + i);
+          return (
+            <Day
+              key={i}
+              date={day}
+              selected={i === selected}
+              className={cx({
+                "prev-day": day.isSame(prevMonth, "M"),
+                "next-day": day.isSame(nextMonth, "M"),
+              })}
+              onClick={onPick}
+            />
+          );
+        })}
+      </div>
+    </>
   );
 };

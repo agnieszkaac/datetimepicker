@@ -21,6 +21,13 @@ describe("<DayPicker /> should", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
+  it("render 42 days", () => {
+    const { getAllByTestId } = render(<DayPicker {...props} />);
+    const days = getAllByTestId("day");
+
+    expect(days.length).toBe(42);
+  });
+
   it("render prev-day and next-day elements for default setup", () => {
     const { container } = render(<DayPicker {...props} />);
     const prevDays = container.querySelectorAll("button.prev-day");
