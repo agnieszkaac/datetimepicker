@@ -1,5 +1,5 @@
 import React from "react";
-import { Moment } from "moment";
+import moment, { Moment } from "moment";
 
 import { View } from "../types";
 import { RangeSwitcher } from "./RangeSwitcher";

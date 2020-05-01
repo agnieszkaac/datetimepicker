@@ -1,24 +1,30 @@
 import React from "react";
-import moment from "moment";
+import moment, { Moment } from "moment";
 import cx from "classnames";
 
-import { DayProps } from "./index";
-import "./DayPicker.scss";
+export interface DayProps {
+  date: Moment;
+  selected: boolean;
+  className?: string;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
 export const Day: React.FunctionComponent<DayProps> = ({
   date,
   selected,
-  onPick,
-}) => {
-  const isToday = moment(date).isSame(moment(), "day");
-  return (
-    <button
-      type="button"
-      value={moment(date).toISOString()}
-      className={cx("day", { selected: selected, "is-today": isToday })}
-      onClick={onPick}
-    >
-      {moment(date).date()}
-    </button>
-  );
-};
+  className,
+  onClick,
+}) => (
+  <button
+    type="button"
+    data-testid="day"
+    value={date.toISOString()}
+    className={cx(className, "day", {
+      selected: selected,
+      "is-today": date.isSame(moment(), "day"),
+    })}
+    onClick={onClick}
+  >
+    {date.date()}
+  </button>
+);

@@ -1,49 +1,34 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import moment from "moment";
 
-import { Day, DayPicker } from "./index";
+import { DayPicker } from "./";
+import { setDate } from "../../testUtils";
+import { showDaysNumber } from "./utils";
 
-const onPick = jest.fn();
-Date.now = jest.fn(() => Date.parse("2020-01-01"));
+const today = "2020-01-01";
+setDate(today);
 
-describe("<Day /> should", () => {
-  describe("match snapshot for present day", () => {
-    it("and NOT selected", () => {
-      const { container } = render(
-        <Day date={moment()} selected={false} onPick={onPick} />,
-      );
-      expect(container).toMatchSnapshot();
-    });
-    it("and selected", () => {
-      const { container } = render(
-        <Day date={moment()} selected={true} onPick={onPick} />,
-      );
-      expect(container).toMatchSnapshot();
-    });
-  });
-
-  describe("match snapshot for NOT present day", () => {
-    it("and NOT selected", () => {
-      const { container } = render(
-        <Day date={moment().add(1, "day")} selected={false} onPick={onPick} />,
-      );
-      expect(container).toMatchSnapshot();
-    });
-    it("and selected", () => {
-      const { container } = render(
-        <Day date={moment().add(1, "day")} selected={true} onPick={onPick} />,
-      );
-      expect(container).toMatchSnapshot();
-    });
-  });
-});
+const onPick = jest.fn((_e) => {});
+const props = {
+  viewDate: moment(),
+  onPick,
+};
 
 describe("<DayPicker /> should", () => {
   it("match snapshot", () => {
-    const { container } = render(
-      <DayPicker date={moment()} viewDate={moment()} onPick={onPick} />,
+    const { asFragment } = render(<DayPicker {...props} />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("render prev-day and next-day elements for default setup", () => {
+    const { container } = render(<DayPicker {...props} />);
+    const prevDays = container.querySelectorAll("button.prev-day");
+    const nextDays = container.querySelectorAll("button.next-day");
+
+    expect(prevDays.length).toBe(3);
+    expect(nextDays.length).toBe(
+      showDaysNumber - prevDays.length - props.viewDate.daysInMonth(),
     );
-    expect(container).toMatchSnapshot();
   });
 });

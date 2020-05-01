@@ -1,0 +1,39 @@
+//colors
+$mine-shaft: #212121;
+$gray: #7f7f7f;
+$mercury: #e2e2e2;
+$gallery: #ffffff;
+
+$text: $mine-shaft;
+$text-light: $gray;
+$text-selected: $gallery;
+$background: $gallery;
+$background-hover: $mercury;
+$background-selected: $gray;
+$border-today: $gray;
+
+//spacing
+$spacing-xs: 2px;
+$spacing-s: 4px;
+$spacing-m: 6px;
+$spacing-l: 8px;
+$spacing-xl: 10px;
+
+//sizes
+$size-xs: 20px;
+$size-s: 25px;
+$size-m: 30px;
+$size-l: 35px;
+$size-xl: 40px;
+
+//typography
+$font-size-small: 12px;
+$font-size-regular: 14px;
+$font-size-large: 16px;
+
+//mixins
+@mixin grid($size, $cols, $gap: $spacing-s) {
+  display: grid;
+  grid-template-columns: repeat($cols, $size);
+  grid-gap: $gap;
+}

@@ -1,5 +1,5 @@
 import { Day } from "./Day";
 import { DayPicker } from "./DayPicker";
-import { DayProps, DayPickerProps } from "./types";
+import { WeekDays } from "./WeekDays";
 
-export { Day, DayPicker, DayProps, DayPickerProps };
+export { Day, DayPicker, WeekDays };
