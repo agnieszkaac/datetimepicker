@@ -1,9 +1,15 @@
 import React from "react";
-import moment from "moment";
+import moment, { Moment } from "moment";
 
-import { Year, YearPickerProps } from "./index";
+import { Year } from "./";
 import { getDecadeStart } from "../../utils";
 import "./YearPicker.scss";
+
+export interface YearPickerProps {
+  date: Moment | undefined;
+  viewDate: Moment;
+  onPick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
 export const YearPicker: React.FunctionComponent<YearPickerProps> = ({
   date,
