@@ -20,7 +20,7 @@ export const DayPicker: React.FunctionComponent<DayPickerProps> = ({
   const { offset, prevMonth, nextMonth, selected } = viewData(viewDate, date);
   return (
     <>
-      <WeekDays />
+      <WeekDays date={viewDate} />
       <div className="day-picker">
         {Array.from({ length: showDaysNumber }, (_e, i) => {
           const day = moment(viewDate).date(-offset + i);

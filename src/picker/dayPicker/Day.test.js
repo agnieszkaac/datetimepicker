@@ -5,23 +5,23 @@ import { render, fireEvent } from "@testing-library/react";
 import { Day } from "./";
 import { setDate } from "../../testUtils";
 
-const today = "2020-01-01";
-setDate(today);
-
-let value = null;
-const displayValue = "1";
-
-//default props
-const date = moment();
-const onClick = jest.fn((e) => (value = e.target.value));
-const props = {
-  date,
-  selected: false,
-  className: "test",
-  onClick,
-};
-
 describe("<Day /> should", () => {
+  const today = "2020-01-01";
+  setDate(today);
+
+  let value = null;
+  const displayValue = "1";
+
+  //default props
+  const date = moment();
+  const onClick = jest.fn((e) => (value = e.target.value));
+  const props = {
+    date,
+    selected: false,
+    className: "test",
+    onClick,
+  };
+
   it("match snapshot", () => {
     const { asFragment } = render(<Day {...props} />);
     expect(asFragment()).toMatchSnapshot();
