@@ -11,13 +11,13 @@ describe("<Year/> should", () => {
   describe("match snapshot for present day", () => {
     it("and NOT selected", () => {
       const { container } = render(
-        <Year date={moment()} selected={false} onPick={onPick} />,
+        <Year date={moment()} selected={false} onClick={onPick} />,
       );
       expect(container).toMatchSnapshot();
     });
     it("and selected", () => {
       const { container } = render(
-        <Year date={moment()} selected={true} onPick={onPick} />,
+        <Year date={moment()} selected={true} onClick={onPick} />,
       );
       expect(container).toMatchSnapshot();
     });
@@ -28,7 +28,7 @@ describe("<Year/> should", () => {
         <Year
           date={moment().add(1, "year")}
           selected={false}
-          onPick={onPick}
+          onClick={onPick}
         />,
       );
       expect(container).toMatchSnapshot();
@@ -36,7 +36,11 @@ describe("<Year/> should", () => {
 
     it("and selected", () => {
       const { container } = render(
-        <Year date={moment().add(1, "year")} selected={true} onPick={onPick} />,
+        <Year
+          date={moment().add(1, "year")}
+          selected={true}
+          onClick={onPick}
+        />,
       );
       expect(container).toMatchSnapshot();
     });
