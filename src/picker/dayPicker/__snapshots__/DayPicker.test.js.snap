@@ -3,7 +3,7 @@
 exports[`<DayPicker /> should match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="day-picker"
+    class="week-days"
   >
     <span
       class="day-of-week"
@@ -40,6 +40,10 @@ exports[`<DayPicker /> should match snapshot 1`] = `
     >
       Sat
     </span>
+  </div>
+  <div
+    class="day-picker"
+  >
     <button
       class="prev-day day"
       data-testid="day"

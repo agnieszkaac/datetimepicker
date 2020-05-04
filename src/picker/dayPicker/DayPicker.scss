@@ -4,15 +4,6 @@ $size: $size-m;
 
 .day-picker {
   @include grid($size, 7);
-
-  .day-of-week {
-    margin: $spacing-m 0;
-    text-align: center;
-    font-size: $font-size-small;
-    line-height: $size-xs;
-    font-weight: 600;
-    vertical-align: middle;
-  }
   .day {
     height: $size;
     width: $size;
@@ -37,5 +28,16 @@ $size: $size-m;
       color: $text-selected;
       background-color: $background-selected;
     }
+  }
+}
+.week-days {
+  @include grid($size, 7);
+  .day-of-week {
+    margin: $spacing-m 0;
+    text-align: center;
+    font-size: $font-size-small;
+    line-height: $size-xs;
+    font-weight: 600;
+    vertical-align: middle;
   }
 }

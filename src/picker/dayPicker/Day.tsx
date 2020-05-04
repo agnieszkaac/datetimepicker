@@ -20,8 +20,8 @@ export const Day: React.FunctionComponent<DayProps> = ({
     data-testid="day"
     value={date.toISOString()}
     className={cx(className, "day", {
-      selected: selected,
-      "is-today": date.isSame(moment(), "day"),
+      selected,
+      "is-today": date.isSame(moment(), "d"),
     })}
     onClick={onClick}
   >

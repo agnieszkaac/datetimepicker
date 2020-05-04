@@ -3,23 +3,24 @@ import moment from "moment";
 import { render, fireEvent } from "@testing-library/react";
 
 import { Day } from "./";
-import { setDate } from "../../testUtils";
-
-const today = "2020-01-01";
-const displayValue = "1";
-setDate(today);
-
-let value = null;
-const onClick = jest.fn((e) => (value = e.target.value));
-const date = moment();
-const props = {
-  date,
-  selected: false,
-  className: "test",
-  onClick,
-};
+import { setToday } from "../../testUtils";
 
 describe("<Day /> should", () => {
+  setToday();
+
+  let value = null;
+  const displayValue = "1";
+
+  //default props
+  const date = moment();
+  const onClick = jest.fn((e) => (value = e.target.value));
+  const props = {
+    date,
+    selected: false,
+    className: "test",
+    onClick,
+  };
+
   it("match snapshot", () => {
     const { asFragment } = render(<Day {...props} />);
     expect(asFragment()).toMatchSnapshot();
@@ -37,6 +38,7 @@ describe("<Day /> should", () => {
     const day = getByTestId("day");
 
     expect(day).not.toHaveClass("selected");
+
     rerender(<Day {...props} selected={true} />);
     expect(day).toHaveClass("selected");
   });

@@ -1,5 +1,4 @@
-import { Year } from "./Year";
-import { YearPicker } from "./YearPicker";
-import { YearProps, YearPickerProps } from "./types";
+import { Year, YearProps } from "./Year";
+import { YearPicker, YearPickerProps } from "./YearPicker";
 
 export { Year, YearPicker, YearProps, YearPickerProps };

@@ -1,23 +1,28 @@
 import React from "react";
-import moment from "moment";
+import moment, { Moment } from "moment";
 import cx from "classnames";
 
-import { YearProps } from "./index";
+export interface YearProps {
+  date: Moment;
+  selected: boolean;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
 export const Year: React.FunctionComponent<YearProps> = ({
   date,
   selected,
-  onPick,
-}) => {
-  const isToday = moment(date).isSame(moment(), "year");
-  return (
-    <button
-      type="button"
-      value={moment(date).toISOString()}
-      className={cx("year", { selected: selected, "is-today": isToday })}
-      onClick={onPick}
-    >
-      {moment(date).format("YYYY")}
-    </button>
-  );
-};
+  onClick,
+}) => (
+  <button
+    type="button"
+    data-testid="year"
+    value={date.toISOString()}
+    className={cx("year", {
+      selected,
+      "is-today": date.isSame(moment(), "y"),
+    })}
+    onClick={onClick}
+  >
+    {date.format("YYYY")}
+  </button>
+);

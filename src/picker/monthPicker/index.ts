@@ -1,5 +1,4 @@
-import { Month } from "./Month";
-import { MonthPicker } from "./MonthPicker";
-import { MonthProps, MonthPickerProps } from "./types";
+import { Month, MonthProps } from "./Month";
+import { MonthPicker, MonthPickerProps } from "./MonthPicker";
 
-export { Month, MonthPicker, MonthProps, MonthPickerProps };
+export { Month, MonthProps, MonthPicker, MonthPickerProps };

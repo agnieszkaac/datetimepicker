@@ -54,11 +54,12 @@ export const configLocale = (
   dow?: number,
 ) => {
   date?.locale(locale);
-  dow &&
+  if (dow) {
     moment.updateLocale(locale, {
       week: {
         dow,
         doy: 7 + dow - 1,
       },
     });
+  }
 };

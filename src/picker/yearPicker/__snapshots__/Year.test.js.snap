@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Year /> should match snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="year is-today"
+    data-testid="year"
+    type="button"
+    value="2020-01-01T00:00:00.000Z"
+  >
+    2020
+  </button>
+</DocumentFragment>
+`;
