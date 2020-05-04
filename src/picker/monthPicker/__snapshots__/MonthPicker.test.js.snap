@@ -1,60 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Month/> should match snapshot for NOT present day and NOT selected 1`] = `
-<div>
-  <button
-    class="month"
-    type="button"
-    value="2020-02-01T00:00:00.000Z"
-  >
-    Feb
-  </button>
-</div>
-`;
-
-exports[`<Month/> should match snapshot for NOT present day and selected 1`] = `
-<div>
-  <button
-    class="month selected"
-    type="button"
-    value="2020-02-01T00:00:00.000Z"
-  >
-    Feb
-  </button>
-</div>
-`;
-
-exports[`<Month/> should match snapshot for present day and NOT selected 1`] = `
-<div>
-  <button
-    class="month is-today"
-    type="button"
-    value="2020-01-01T00:00:00.000Z"
-  >
-    Jan
-  </button>
-</div>
-`;
-
-exports[`<Month/> should match snapshot for present day and selected 1`] = `
-<div>
-  <button
-    class="month selected is-today"
-    type="button"
-    value="2020-01-01T00:00:00.000Z"
-  >
-    Jan
-  </button>
-</div>
-`;
-
 exports[`<MonthPicker /> should match snapshot 1`] = `
-<div>
+<DocumentFragment>
   <div
     class="month-picker"
   >
     <button
-      class="month selected is-today"
+      class="month is-today"
+      data-testid="month"
       type="button"
       value="2020-01-01T00:00:00.000Z"
     >
@@ -62,6 +15,7 @@ exports[`<MonthPicker /> should match snapshot 1`] = `
     </button>
     <button
       class="month"
+      data-testid="month"
       type="button"
       value="2020-02-01T00:00:00.000Z"
     >
@@ -69,6 +23,7 @@ exports[`<MonthPicker /> should match snapshot 1`] = `
     </button>
     <button
       class="month"
+      data-testid="month"
       type="button"
       value="2020-03-01T00:00:00.000Z"
     >
@@ -76,6 +31,7 @@ exports[`<MonthPicker /> should match snapshot 1`] = `
     </button>
     <button
       class="month"
+      data-testid="month"
       type="button"
       value="2020-03-31T23:00:00.000Z"
     >
@@ -83,6 +39,7 @@ exports[`<MonthPicker /> should match snapshot 1`] = `
     </button>
     <button
       class="month"
+      data-testid="month"
       type="button"
       value="2020-04-30T23:00:00.000Z"
     >
@@ -90,6 +47,7 @@ exports[`<MonthPicker /> should match snapshot 1`] = `
     </button>
     <button
       class="month"
+      data-testid="month"
       type="button"
       value="2020-05-31T23:00:00.000Z"
     >
@@ -97,6 +55,7 @@ exports[`<MonthPicker /> should match snapshot 1`] = `
     </button>
     <button
       class="month"
+      data-testid="month"
       type="button"
       value="2020-06-30T23:00:00.000Z"
     >
@@ -104,6 +63,7 @@ exports[`<MonthPicker /> should match snapshot 1`] = `
     </button>
     <button
       class="month"
+      data-testid="month"
       type="button"
       value="2020-07-31T23:00:00.000Z"
     >
@@ -111,6 +71,7 @@ exports[`<MonthPicker /> should match snapshot 1`] = `
     </button>
     <button
       class="month"
+      data-testid="month"
       type="button"
       value="2020-08-31T23:00:00.000Z"
     >
@@ -118,6 +79,7 @@ exports[`<MonthPicker /> should match snapshot 1`] = `
     </button>
     <button
       class="month"
+      data-testid="month"
       type="button"
       value="2020-09-30T23:00:00.000Z"
     >
@@ -125,6 +87,7 @@ exports[`<MonthPicker /> should match snapshot 1`] = `
     </button>
     <button
       class="month"
+      data-testid="month"
       type="button"
       value="2020-11-01T00:00:00.000Z"
     >
@@ -132,11 +95,12 @@ exports[`<MonthPicker /> should match snapshot 1`] = `
     </button>
     <button
       class="month"
+      data-testid="month"
       type="button"
       value="2020-12-01T00:00:00.000Z"
     >
       Dec
     </button>
   </div>
-</div>
+</DocumentFragment>
 `;

@@ -1,24 +1,28 @@
 import React from "react";
-import moment from "moment";
+import moment, { Moment } from "moment";
 import cx from "classnames";
 
-import { MonthProps } from "./index";
-import "./MonthPicker.scss";
+export interface MonthProps {
+  date: Moment;
+  selected: boolean;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
 export const Month: React.FunctionComponent<MonthProps> = ({
   date,
   selected,
-  onPick,
-}) => {
-  const isToday = moment(date).isSame(moment(), "month");
-  return (
-    <button
-      type="button"
-      value={moment(date).toISOString()}
-      className={cx("month", { selected: selected, "is-today": isToday })}
-      onClick={onPick}
-    >
-      {moment(date).format("MMM")}
-    </button>
-  );
-};
+  onClick,
+}) => (
+  <button
+    type="button"
+    data-testid="month"
+    value={date.toISOString()}
+    className={cx("month", {
+      selected,
+      "is-today": date.isSame(moment(), "M"),
+    })}
+    onClick={onClick}
+  >
+    {date.format("MMM")}
+  </button>
+);

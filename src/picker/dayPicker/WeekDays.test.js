@@ -3,12 +3,11 @@ import { render } from "@testing-library/react";
 import moment from "moment";
 
 import { WeekDays } from "./";
-import "../../testUtils";
-import { setDate } from "../../testUtils";
+import { setToday } from "../../testUtils";
 
 describe("<WeekDays /> should", () => {
-  const today = "2020-01-01";
-  setDate(today);
+  setToday();
+
   const date = moment();
 
   it("match snapshot", () => {

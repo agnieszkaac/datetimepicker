@@ -3,11 +3,10 @@ import moment from "moment";
 import { render, fireEvent } from "@testing-library/react";
 
 import { Day } from "./";
-import { setDate } from "../../testUtils";
+import { setToday } from "../../testUtils";
 
 describe("<Day /> should", () => {
-  const today = "2020-01-01";
-  setDate(today);
+  setToday();
 
   let value = null;
   const displayValue = "1";

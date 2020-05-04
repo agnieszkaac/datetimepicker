@@ -3,12 +3,11 @@ import { render } from "@testing-library/react";
 import moment from "moment";
 
 import { DayPicker } from "./";
-import { setDate } from "../../testUtils";
+import { setToday } from "../../testUtils";
 import { showDaysNumber } from "./utils";
 
 describe("<DayPicker /> should", () => {
-  const today = "2020-01-01";
-  setDate(today);
+  setToday();
 
   const onPick = jest.fn((_e) => {});
   const props = {

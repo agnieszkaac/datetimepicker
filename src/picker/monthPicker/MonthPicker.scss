@@ -1,13 +1,28 @@
-$size: 40px;
+@import "../../common";
+
+$size: $size-xl;
 
 .month-picker {
-  display: grid;
-  grid-template-columns: repeat(4, $size);
-  grid-gap: 3px;
-}
+  @include grid($size, 4, $spacing-s);
+  .month {
+    height: $size;
+    width: $size;
+    color: $text;
+    background-color: $background;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    cursor: pointer;
 
-.month {
-  height: $size;
-  width: $size;
+    &:hover {
+      background-color: $background-hover;
+    }
+    &.is-today {
+      border: 1px solid $border-today;
+    }
+    &.selected {
+      color: $text-selected;
+      background-color: $background-selected;
+    }
+  }
 }
-
