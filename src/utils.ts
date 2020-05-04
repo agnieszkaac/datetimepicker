@@ -55,7 +55,6 @@ export const configLocale = (
 ) => {
   date?.locale(locale);
   if (dow) {
-    console.log("test", dow);
     moment.updateLocale(locale, {
       week: {
         dow,
