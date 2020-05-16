@@ -3,26 +3,25 @@ import moment, { Moment } from "moment";
 import cx from "classnames";
 
 export interface YearProps {
-  date: Moment;
-  selected: boolean;
+  viewDate: Moment;
+  className?: string;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const Year: React.FunctionComponent<YearProps> = ({
-  date,
-  selected,
+  viewDate,
+  className,
   onClick,
 }) => (
   <button
     type="button"
     data-testid="year"
-    value={date.toISOString()}
-    className={cx("year", {
-      selected,
-      "is-today": date.isSame(moment(), "y"),
+    value={viewDate.toISOString()}
+    className={cx("year", className, {
+      "is-today": viewDate.isSame(moment(), "y"),
     })}
     onClick={onClick}
   >
-    {date.format("YYYY")}
+    {viewDate.format("YYYY")}
   </button>
 );

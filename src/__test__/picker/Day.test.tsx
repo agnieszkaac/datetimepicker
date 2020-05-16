@@ -31,14 +31,14 @@ describe("<Day /> should", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it("displays correct value for default date", () => {
+  it("display correct value for default date", () => {
     const { getByTestId } = render(<Day {...props} />);
     const day = getByTestId("day");
 
     expect(day).toHaveTextContent("1");
   });
 
-  it("have passed class names", () => {
+  it("pass class names", () => {
     const { getByTestId } = render(<Day {...props} className="test" />);
     const day = getByTestId("day");
 
