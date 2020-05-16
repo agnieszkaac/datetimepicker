@@ -6,37 +6,44 @@ exports[`<WeekDays /> should match snapshot 1`] = `
     class="week-days"
   >
     <span
-      class="day-of-week"
+      class="week-day"
+      data-testid="week-day"
     >
       Sun
     </span>
     <span
-      class="day-of-week"
+      class="week-day"
+      data-testid="week-day"
     >
       Mon
     </span>
     <span
-      class="day-of-week"
+      class="week-day"
+      data-testid="week-day"
     >
       Tue
     </span>
     <span
-      class="day-of-week"
+      class="week-day"
+      data-testid="week-day"
     >
       Wed
     </span>
     <span
-      class="day-of-week"
+      class="week-day"
+      data-testid="week-day"
     >
       Thu
     </span>
     <span
-      class="day-of-week"
+      class="week-day"
+      data-testid="week-day"
     >
       Fri
     </span>
     <span
-      class="day-of-week"
+      class="week-day"
+      data-testid="week-day"
     >
       Sat
     </span>

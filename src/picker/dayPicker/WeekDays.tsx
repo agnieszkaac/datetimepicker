@@ -1,17 +1,19 @@
 import React from "react";
 import { Moment } from "moment";
 
-import { weekDaysNumber } from "./utils";
+import { weekDaysNumber as length } from "./utils";
 
-interface WeekDaysProps {
-  date: Moment;
+export interface WeekDaysProps {
+  viewDate: Moment;
 }
 
-export const WeekDays: React.FunctionComponent<WeekDaysProps> = ({ date }) => (
+export const WeekDays: React.FunctionComponent<WeekDaysProps> = ({
+  viewDate,
+}) => (
   <div className="week-days">
-    {Array.from({ length: weekDaysNumber }, (_e, i) => (
-      <span key={i} className="day-of-week">
-        {date.weekday(i).format("ddd")}
+    {Array.from({ length }, (_e, i) => (
+      <span key={i} className="week-day" data-testid="week-day">
+        {viewDate.weekday(i).format("ddd")}
       </span>
     ))}
   </div>
