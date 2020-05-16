@@ -3,26 +3,23 @@ import moment, { Moment } from "moment";
 import cx from "classnames";
 
 export interface MonthProps {
-  date: Moment;
-  selected: boolean;
+  viewDate: Moment;
+  className?: string;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const Month: React.FunctionComponent<MonthProps> = ({
-  date,
-  selected,
+  viewDate,
+  className,
   onClick,
 }) => (
   <button
     type="button"
     data-testid="month"
-    value={date.toISOString()}
-    className={cx("month", {
-      selected,
-      "is-today": date.isSame(moment(), "M"),
-    })}
+    value={viewDate.toISOString()}
+    className={cx("month", className)}
     onClick={onClick}
   >
-    {date.format("MMM")}
+    {viewDate.format("MMM")}
   </button>
 );

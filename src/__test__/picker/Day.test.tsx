@@ -45,7 +45,7 @@ describe("<Day /> should", () => {
     expect(day).toHaveClass("test");
   });
 
-  it("have fire onClick with correct value attribute", () => {
+  it("fire onClick with correct value when clicked", () => {
     const { getByTestId } = render(<Day {...props} />);
     const day = getByTestId("day");
     const expectedValue = "2020-01-01T00:00:00.000Z";
