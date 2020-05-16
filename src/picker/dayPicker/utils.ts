@@ -12,17 +12,6 @@ export const viewData = (viewDate: Moment, date?: Moment) => {
   const offset = prevDaysOffset(moment(viewDate).date(1).weekday()) - 1; //0-6
   const prevMonth = moment(viewDate).subtract(1, "M");
   const nextMonth = moment(viewDate).add(1, "M");
-  let selected = -1;
 
-  if (date?.isSame(prevMonth, "M")) {
-    selected = date?.date() - prevMonth.daysInMonth() + offset;
-  }
-  if (date?.isSame(viewDate, "M")) {
-    selected = date?.date() + offset;
-  }
-  if (date?.isSame(nextMonth, "M")) {
-    selected = date?.date() + viewDate.daysInMonth() + offset;
-  }
-
-  return { offset, prevMonth, nextMonth, selected };
+  return { offset, prevMonth, nextMonth };
 };

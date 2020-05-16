@@ -18,8 +18,9 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
 }) => {
   const [view, setView] = useState(View.Day);
   const [viewDate, setViewDate] = useState(moment(date));
-
   configLocale(viewDate, locale, firstDayOfWeek);
+
+  console.log(firstDayOfWeek, locale)
 
   const handlePick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (view === View.Day) {

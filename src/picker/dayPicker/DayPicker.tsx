@@ -17,7 +17,7 @@ export const DayPicker: React.FunctionComponent<DayPickerProps> = ({
   viewDate,
   onPick,
 }) => {
-  const { offset, prevMonth, nextMonth, selected } = viewData(viewDate, date);
+  const { offset, prevMonth, nextMonth } = viewData(viewDate, date);
   return (
     <>
       <WeekDays date={viewDate} />
@@ -27,11 +27,12 @@ export const DayPicker: React.FunctionComponent<DayPickerProps> = ({
           return (
             <Day
               key={i}
-              date={day}
-              selected={i === selected}
+              viewDate={day}
               className={cx({
                 "prev-day": day.isSame(prevMonth, "M"),
                 "next-day": day.isSame(nextMonth, "M"),
+                selected: date?.isSame(viewDate),
+                "is-today": viewDate.isSame(moment(), "d"),
               })}
               onClick={onPick}
             />

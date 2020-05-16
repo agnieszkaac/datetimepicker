@@ -3,7 +3,7 @@
 exports[`<Day /> should match snapshot 1`] = `
 <DocumentFragment>
   <button
-    class="test day is-today"
+    class="day"
     data-testid="day"
     type="button"
     value="2020-01-01T00:00:00.000Z"

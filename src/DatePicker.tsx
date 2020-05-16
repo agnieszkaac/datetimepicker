@@ -17,7 +17,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   hideOnPick = false,
   displayFormat,
   locale = "en",
-  firstDayOfWeek,
+  firstDayOfWeek= 0,
   onClick = noop,
   onBlur = noop,
   onPick = noop,
