@@ -18,7 +18,7 @@ export const MonthPicker: React.FunctionComponent<MonthPickerProps> = ({
 }) => (
   <div className="month-picker">
     {Array.from({ length: 12 }, (_e, i) => {
-      const month = viewDate.month(i);
+      const month = moment(viewDate).month(i);
       return (
         <Month
           key={i}
