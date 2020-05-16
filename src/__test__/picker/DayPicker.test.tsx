@@ -36,10 +36,10 @@ describe("<DayPicker /> should", () => {
     const { getAllByTestId } = render(<DayPicker {...props} />);
     const days = getAllByTestId("day");
 
-    expect(days.length).toBe(42);
+    expect(days.length).toEqual(42);
   });
 
-  it("mark day as selected when date prop is passed", () => {
+  it("render selected day when date prop is passed and is within viewDate", () => {
     const { getByText, rerender } = render(<DayPicker {...props} />);
     const day = getByText("15");
 
@@ -51,7 +51,7 @@ describe("<DayPicker /> should", () => {
     expect(day).toHaveClass("selected");
   });
 
-  it("not mark any selected days when selected is not within viewDate", () => {
+  it("not render selected year when date is not within viewDate", () => {
     props.date = moment();
     props.viewDate = moment("2020-10-10");
 
@@ -61,14 +61,14 @@ describe("<DayPicker /> should", () => {
     expect(days.length).toEqual(0);
   });
 
-  it("mark one day as current day when within viewDate", () => {
+  it("render current day when within viewDate", () => {
     const { asFragment } = render(<DayPicker {...props} />);
     const days = asFragment().querySelectorAll(".is-today");
 
     expect(days.length).toEqual(1);
   });
 
-  it("not mark any current days when today is not within viewDate", () => {
+  it("not render current day when not within viewDate", () => {
     props.viewDate = moment("2020-10-10");
 
     const { asFragment } = render(<DayPicker {...props} />);

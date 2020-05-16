@@ -3,6 +3,7 @@ import moment, { Moment } from "moment";
 import cx from "classnames";
 
 import { Month } from "./";
+import { defaultGridSize as length } from "../dayPicker/utils";
 import "./MonthPicker.scss";
 
 export interface MonthPickerProps {
@@ -17,7 +18,7 @@ export const MonthPicker: React.FunctionComponent<MonthPickerProps> = ({
   onPick,
 }) => (
   <div className="month-picker">
-    {Array.from({ length: 12 }, (_e, i) => {
+    {Array.from({ length }, (_e, i) => {
       const month = moment(viewDate).month(i);
       return (
         <Month

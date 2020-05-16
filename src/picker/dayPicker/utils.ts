@@ -2,6 +2,7 @@ import moment, { Moment } from "moment";
 
 export const weekDaysNumber = 7; //Always show 7 week days => columns
 export const showDaysNumber = 42; //Always show 6 weeks => rows
+export const defaultGridSize = 12; //Always show 12 months and years in a grid
 
 //dayOfWeek is a number in [0 - 6] value range
 //return value should be in [1 - weekDaysNumber] value range
