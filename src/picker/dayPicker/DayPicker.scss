@@ -2,23 +2,26 @@
 
 $size: $size-m;
 
+.day {
+  height: $size;
+  width: $size;
+  color: $text;
+  background-color: $background;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $background-hover;
+  }
+}
+
 .day-picker {
   @include grid($size, 7);
-  .day {
-    height: $size;
-    width: $size;
-    color: $text;
-    background-color: $background;
-    border: none;
-    outline: none;
-    border-radius: 2px;
-    cursor: pointer;
-
-    &:hover {
-      background-color: $background-hover;
-    }
-    &.prev-day,
-    &.next-day {
+  & .day {
+    &.prev-month,
+    &.next-month {
       color: $text-light;
     }
     &.is-today {

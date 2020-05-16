@@ -8,7 +8,7 @@ export const showDaysNumber = 42; //Always show 6 weeks => rows
 export const prevDaysOffset = (dayOfWeek: number) =>
   dayOfWeek === 0 ? weekDaysNumber : dayOfWeek;
 
-export const viewData = (viewDate: Moment, date?: Moment) => {
+export const viewData = (viewDate: Moment) => {
   const offset = prevDaysOffset(moment(viewDate).date(1).weekday()) - 1; //0-6
   const prevMonth = moment(viewDate).subtract(1, "M");
   const nextMonth = moment(viewDate).add(1, "M");
