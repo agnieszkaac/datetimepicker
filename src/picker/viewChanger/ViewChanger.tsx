@@ -1,7 +1,7 @@
 import React from "react";
 import moment, { Moment } from "moment";
 
-import { View } from "../types";
+import { View } from "../utils";
 import { RangeSwitcher } from "./RangeSwitcher";
 import { ViewSwitcher } from "./ViewSwitcher";
 import { getViewLabel } from "../../utils";

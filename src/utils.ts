@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import moment, { Moment } from "moment";
 
 import { ValueDate } from "./types";
-import { View } from "./picker/types";
+import { View } from "./picker/utils";
 
 export const noop = () => null;
 

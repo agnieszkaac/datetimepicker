@@ -1,13 +1,21 @@
-import React, { useState } from "react";
-import moment from "moment";
+import React, { Ref, useState } from "react";
+import moment, { Moment } from "moment";
 
-import { PickerProps, View } from "./types";
+import { getNextView, getViewDate, View } from "./utils";
 import { MonthPicker } from "./monthPicker";
 import { DayPicker } from "./dayPicker";
 import { YearPicker } from "./yearPicker";
 import { ViewChanger } from "./viewChanger/ViewChanger";
 import { configLocale } from "../utils";
 import "./Picker.scss";
+
+export interface PickerProps {
+  date: Moment | undefined;
+  locale: string;
+  firstDayOfWeek: number | undefined;
+  pickerRef: Ref<HTMLDivElement>;
+  onPick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
 export const Picker: React.FunctionComponent<PickerProps> = ({
   date,
@@ -17,35 +25,22 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
   onPick,
 }) => {
   const [view, setView] = useState(View.Day);
-  const [viewDate, setViewDate] = useState(moment(date));
-  configLocale(viewDate, locale, firstDayOfWeek);
+  const [viewDate, setViewDate] = useState(moment(date).startOf("M"));
 
-  console.log(firstDayOfWeek, locale)
+  configLocale(viewDate, locale, firstDayOfWeek);
 
   const handlePick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (view === View.Day) {
       onPick(e);
       return;
     }
-    setViewDate(moment(e.currentTarget.value));
-    switchView(-1);
+    setViewDate(moment(e.currentTarget.value).startOf("M"));
+    setView(getNextView(-1, view));
   };
 
-  const switchView = (v = 1) => {
-    if ((v === 1 && view < View.Year) || (v === -1 && view > View.Day)) {
-      setView(view + v);
-    }
+  const handleRangeSwitch = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setViewDate(getViewDate(Number(e.currentTarget.value), view, viewDate));
   };
-
-  const switchRange = (e: React.MouseEvent<HTMLButtonElement>) =>
-    setViewDate(
-      moment(viewDate).add(
-        view === View.Year
-          ? Number(e.currentTarget.value) * 10
-          : e.currentTarget.value,
-        view === View.Day ? "month" : "year",
-      ),
-    );
 
   const PickerComponent =
     view === View.Day
@@ -59,8 +54,8 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
       <ViewChanger
         view={view}
         viewDate={viewDate}
-        onViewSwitch={switchView}
-        onRangeSwitch={switchRange}
+        onViewSwitch={() => setView(getNextView(1, view))}
+        onRangeSwitch={handleRangeSwitch}
       />
       <PickerComponent date={date} viewDate={viewDate} onPick={handlePick} />
     </div>
