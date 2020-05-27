@@ -1,8 +1,8 @@
 import React from "react";
-import moment, { Moment } from "moment";
+import { Moment } from "moment";
 import cx from "classnames";
 
-export interface MonthProps {
+export type MonthProps = {
   viewDate: Moment;
   className?: string;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;

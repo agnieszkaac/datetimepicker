@@ -1,5 +1,5 @@
 import React from "react";
-import moment, { Moment } from "moment";
+import { Moment } from "moment";
 
 import { View } from "../utils";
 import { RangeSwitcher } from "./RangeSwitcher";
@@ -7,7 +7,7 @@ import { ViewSwitcher } from "./ViewSwitcher";
 import { getViewLabel } from "../../utils";
 import "./ViewChanger.scss";
 
-export interface ViewChangerProps {
+export type ViewChangerProps = {
   view: View;
   viewDate: Moment;
   onViewSwitch: () => void;

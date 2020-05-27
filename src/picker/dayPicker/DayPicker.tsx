@@ -6,7 +6,7 @@ import { Day, WeekDays } from "./";
 import { showDaysNumber as length, viewData } from "./utils";
 import "./DayPicker.scss";
 
-export interface DayPickerProps {
+export type DayPickerProps = {
   date: Moment | undefined;
   viewDate: Moment;
   onPick: (e: React.MouseEvent<HTMLButtonElement>) => void;

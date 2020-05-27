@@ -2,7 +2,7 @@ import React from "react";
 import { Moment } from "moment";
 import cx from "classnames";
 
-export interface DayProps {
+export type DayProps = {
   viewDate: Moment;
   className?: string;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;

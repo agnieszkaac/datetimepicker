@@ -1,6 +1,6 @@
 import React from "react";
 
-interface RangeSwitcherProps {
+type RangeSwitcherProps = {
   value: number;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }

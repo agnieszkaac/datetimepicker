@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface ViewChangerProps {
+export type ViewChangerProps = {
   label: string;
   onClick: () => void;
 }

@@ -3,7 +3,7 @@ import { Moment } from "moment";
 
 import { weekDaysNumber as length } from "./utils";
 
-export interface WeekDaysProps {
+export type WeekDaysProps = {
   viewDate: Moment;
 }
 

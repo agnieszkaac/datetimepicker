@@ -6,7 +6,7 @@ import { Month } from "./";
 import { defaultGridSize as length } from "../dayPicker/utils";
 import "./MonthPicker.scss";
 
-export interface MonthPickerProps {
+export type MonthPickerProps = {
   date: Moment | undefined;
   viewDate: Moment;
   onPick: (e: React.MouseEvent<HTMLButtonElement>) => void;
