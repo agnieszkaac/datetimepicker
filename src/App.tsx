@@ -13,8 +13,6 @@ ReactDOM.render(
     <DatePicker
       value={date}
       displayFormat={"DD-MMM-YYYY"}
-      locale={"pl"}
-      firstDayOfWeek={2}
     />
   </div>,
   document.getElementById("root"),

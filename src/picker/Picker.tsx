@@ -5,11 +5,12 @@ import { getNextView, getViewDate, View } from "./utils";
 import { MonthPicker } from "./monthPicker";
 import { DayPicker } from "./dayPicker";
 import { YearPicker } from "./yearPicker";
-import { ViewChanger } from "./viewChanger/ViewChanger";
+import { Switch } from "./switch/Switch";
 import { configLocale } from "../utils";
+
 import "./Picker.scss";
 
-export interface PickerProps {
+export type PickerProps = {
   date: Moment | undefined;
   locale: string;
   firstDayOfWeek: number | undefined;
@@ -27,7 +28,7 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
   const [view, setView] = useState(View.Day);
   const [viewDate, setViewDate] = useState(moment(date).startOf("M"));
 
-  configLocale(viewDate, locale, firstDayOfWeek);
+  // configLocale(viewDate, locale, firstDayOfWeek);
 
   const handlePick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (view === View.Day) {
@@ -51,7 +52,7 @@ export const Picker: React.FunctionComponent<PickerProps> = ({
 
   return (
     <div className="picker" ref={pickerRef}>
-      <ViewChanger
+      <Switch
         view={view}
         viewDate={viewDate}
         onViewSwitch={() => setView(getNextView(1, view))}

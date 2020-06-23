@@ -1,23 +1,21 @@
 import React from "react";
 import MockDate from "mockdate";
-import moment, { Moment } from "moment";
+import moment  from "moment";
 import { render, fireEvent } from "@testing-library/react";
 
 import { Day, DayProps } from "../../picker/dayPicker";
 
 describe("<Day /> should", () => {
-  let value: string;
-  const onClick = jest.fn((e) => (value = e.target.value));
-
-  let viewDate: Moment;
   let props: DayProps;
+  let value: string;
+
+  const onClick = jest.fn((e) => (value = e.target.value));
 
   beforeEach(() => {
     MockDate.set("2020-01-01");
 
-    viewDate = moment();
     props = {
-      viewDate,
+      viewDate: moment(),
       onClick,
     };
   });

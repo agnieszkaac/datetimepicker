@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RangeSwitch /> should match snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="range-switch"
+    data-testid="range-switch"
+    value="-1"
+  >
+    <span>
+      ❮
+    </span>
+  </button>
+</DocumentFragment>
+`;

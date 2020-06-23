@@ -20,7 +20,7 @@ export const YearPicker: React.FunctionComponent<YearPickerProps> = ({
 }) => {
   const decadeStart = getDecadeStart(viewDate);
   return (
-    <div className="year-picker">
+    <div data-testid="year-picker" className="year-picker">
       {Array.from({ length }, (_e, i) => {
         const year = moment(viewDate).year(decadeStart + i)
         return (
