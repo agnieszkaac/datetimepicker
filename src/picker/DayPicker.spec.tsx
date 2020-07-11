@@ -3,7 +3,7 @@ import MockDate from "mockdate";
 import { render } from "@testing-library/react";
 import moment from "moment";
 
-import { showDaysNumber, weekDaysNumber } from "./utils";
+import { showDaysNumber } from "./utils";
 import { PickerComponentProps, View } from "./types";
 import { DayPicker } from "./DayPicker";
 import { DateProvider, ViewProvider } from "../state";
@@ -22,22 +22,6 @@ describe("<DayPicker />", () => {
   afterEach(() => {
     MockDate.reset();
   });
-
-  it("should render 7 week days", () => {
-    const { getAllByTestId } = render(
-      <ViewProvider view={View.Day} viewDate={moment().startOf("month")}>
-        <DateProvider date={moment()}>
-          <DayPicker {...props} />
-        </DateProvider>
-      </ViewProvider>,
-    );
-    const weekDays = getAllByTestId("day-of-week");
-
-    expect(weekDays.length).toBe(weekDaysNumber);
-  });
-
-  it("should show Monday as first day of week on default setting", () => {});
-  it("should show other day as first day of week when setting changed", () => {});
 
   it("should render 42 days", () => {
     const { getAllByTestId } = render(<DayPicker {...props} />);
