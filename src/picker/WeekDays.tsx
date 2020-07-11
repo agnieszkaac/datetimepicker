@@ -1,11 +1,11 @@
 import React from "react";
 import moment from "moment";
 
-import { weekDaysNumber } from "./utils";
+import { weekDaysNumber as length } from "./utils";
 
 export const WeekDays: React.FC = () => (
-  <div className="week-days">
-    {Array.from({ length: weekDaysNumber }, (_e, i) => (
+  <div className="week-days" data-testid="week-days">
+    {Array.from({ length }, (_e, i) => (
       <span key={i} className="day-of-week" data-testid="day-of-week">
         {moment().weekday(i).format("ddd")}
       </span>

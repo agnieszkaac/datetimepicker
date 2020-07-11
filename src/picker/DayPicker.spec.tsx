@@ -1,18 +1,22 @@
 import React from "react";
 import MockDate from "mockdate";
-import { render } from "@testing-library/react";
-import moment from "moment";
+import moment, { Moment } from "moment";
 
-import { showDaysNumber } from "./utils";
+import { render } from "../__tests__/customRender";
 import { PickerComponentProps, View } from "./types";
-import { DayPicker } from "./DayPicker";
-import { DateProvider, ViewProvider } from "../state";
 
-describe("<DayPicker />", () => {
+import { DayPicker } from "./DayPicker";
+
+describe("<DayPicker /> should", () => {
   let props: PickerComponentProps;
+  let date: Moment;
+  let viewDate: Moment;
 
   beforeEach(() => {
     MockDate.set("2020-01-01");
+
+    date = moment();
+    viewDate = moment().startOf("month");
 
     props = {
       onPick: jest.fn(),
@@ -23,27 +27,70 @@ describe("<DayPicker />", () => {
     MockDate.reset();
   });
 
-  it("should render 42 days", () => {
-    const { getAllByTestId } = render(<DayPicker {...props} />);
+  it("render weekdays and 42 days", () => {
+    const { getByTestId, getAllByTestId } = render(
+      <DayPicker {...props} />,
+      {},
+      { view: View.Day, date, viewDate },
+    );
+    const weekDays = getByTestId("week-days");
+
+    expect(weekDays).toBeInTheDocument();
+
     const days = getAllByTestId("day");
 
-    expect(days.length).toBe(showDaysNumber);
+    expect(days.length).toBe(42);
   });
 
-  it("render prev-day and next-day elements for default setup", () => {
+  it("render proper amount of prev-day and next-day elements for default setup", () => {
     const { container } = render(
-      <ViewProvider view={View.Day} viewDate={moment().startOf("month")}>
-        <DateProvider date={moment()}>
-          <DayPicker {...props} />
-        </DateProvider>
-      </ViewProvider>,
+      <DayPicker {...props} />,
+      {},
+      { view: View.Day, date, viewDate },
     );
     const prevDays = container.querySelectorAll("button.prev-day");
     const nextDays = container.querySelectorAll("button.next-day");
 
     expect(prevDays.length).toBe(3);
-    expect(nextDays.length).toBe(
-      showDaysNumber - prevDays.length - moment().daysInMonth(),
+    expect(nextDays.length).toBe(8);
+  });
+
+  it("render one day marked as 'today' when in scope of viewDate", () => {
+    const { container } = render(
+      <DayPicker {...props} />,
+      {},
+      { view: View.Day, date, viewDate },
     );
+    const days = container?.querySelectorAll(".is-today");
+
+    expect(days?.length).toEqual(1);
+  });
+
+  it("render none 'today' days when date not in scope od viewDate", () => {
+    const { container } = render(
+      <DayPicker {...props} />,
+      {},
+      { view: View.Day, date, viewDate: moment().add(3, "month") },
+    );
+    const days = container?.querySelectorAll(".is-today");
+
+    expect(days?.length).toEqual(0);
+  });
+
+  it("select a day with proper class when it's clicked", () => {
+    const { getByText, rerender } = render(
+      <DayPicker {...props} />,
+      {},
+      { view: View.Day, date, viewDate },
+    );
+    let exampleDay = getByText("15");
+
+    expect(exampleDay).not.toHaveClass("selected");
+
+    date = moment().date(15);
+    rerender(<DayPicker {...props} />, {}, { view: View.Day, date, viewDate });
+    exampleDay = getByText("15");
+
+    expect(exampleDay).toHaveClass("selected");
   });
 });
