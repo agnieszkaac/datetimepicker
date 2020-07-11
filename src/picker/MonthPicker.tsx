@@ -4,8 +4,7 @@ import cx from "classnames";
 
 import { PickerComponentProps } from "./types";
 import { defaultGridSize as length } from "./utils";
-import { ViewContext } from "../state/ViewContext";
-import { DateContext } from "../state/DateContext";
+import { DateContext, ViewContext } from "../state";
 
 import { PickButton } from "./PickButton";
 import "./MonthPicker.scss";
@@ -21,7 +20,7 @@ export const MonthPicker: React.FC<PickerComponentProps> = ({ onPick }) => {
         return (
           <PickButton
             key={i}
-            data-testid="month"
+            type="month"
             date={month.startOf("month")}
             format="MMM"
             className={cx({

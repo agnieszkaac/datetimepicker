@@ -16,6 +16,7 @@ describe("<PickButton />", () => {
 
     props = {
       date: moment(),
+      type: "day",
       format: "D",
       onClick,
     };
@@ -32,8 +33,8 @@ describe("<PickButton />", () => {
     expect(button).toHaveTextContent("1");
   });
   it("should call onClick function with proper value", () => {
-    const { getByRole } = render(<PickButton {...props} />);
-    const button = getByRole("button");
+    const { getByTestId } = render(<PickButton {...props} />);
+    const button = getByTestId("day");
 
     fireEvent.click(button);
 

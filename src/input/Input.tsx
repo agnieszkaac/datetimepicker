@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 
+import { DateContext } from "../state";
 import { parseMomentToString, noop } from "../utils";
 import { InputProps } from "./types";
+
 import "./Input.scss";
-import { DateContext } from "../state/DateContext";
 
 export const Input: React.FunctionComponent<InputProps> = ({
   format = "MM-DD-YYYY",

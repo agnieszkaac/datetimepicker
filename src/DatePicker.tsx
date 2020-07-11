@@ -11,7 +11,7 @@ import {
   configLocale,
 } from "./utils";
 import "./DatePicker.scss";
-import { DateContext } from "./state/DateContext";
+import { DateProvider } from "./state";
 
 export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   value,
@@ -30,7 +30,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   const [date, setDate] = useState(parseValueToMoment(value));
   const [pickerOpen, setPickerOpen] = useState(false);
 
-  configLocale(date, locale);
+  // configLocale(date, locale);
 
   const handleClickListener = (event: MouseEvent) => {
     if (!wrapperRef.current?.contains(event.target as Node)) {
@@ -55,7 +55,7 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   };
 
   return (
-    <DateContext.Provider value={{ date }}>
+    <DateProvider date={date}>
       <div ref={wrapperRef} className="wrapper">
         <Input
           format={displayFormat}
@@ -73,6 +73,6 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
           />
         )}
       </div>
-    </DateContext.Provider>
+    </DateProvider>
   );
 };

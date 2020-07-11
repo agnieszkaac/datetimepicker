@@ -1,7 +1,7 @@
 import React from "react";
 
 import { getViewLabel } from "../utils";
-import { ViewContext } from "../state/ViewContext";
+import { ViewContext } from "../state";
 
 import "./ViewChanger.scss";
 

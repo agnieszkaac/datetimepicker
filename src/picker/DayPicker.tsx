@@ -4,8 +4,7 @@ import cx from "classnames";
 
 import { PickerComponentProps } from "./types";
 import { showDaysNumber as length, viewData } from "./utils";
-import { ViewContext } from "../state/ViewContext";
-import { DateContext } from "../state/DateContext";
+import { DateContext, ViewContext } from "../state";
 
 import { WeekDays } from "./WeekDays";
 import { PickButton } from "./PickButton";
@@ -19,14 +18,14 @@ export const DayPicker: React.FC<PickerComponentProps> = ({ onPick }) => {
 
   return (
     <>
-      <WeekDays date={viewDate} />
+      <WeekDays />
       <div className="day-picker">
         {Array.from({ length }, (_e, i) => {
           const day = moment(viewDate).date(-offset + i);
           return (
             <PickButton
               key={i}
-              data-testid="day"
+              type="day"
               date={day}
               format="D"
               className={cx({

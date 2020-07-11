@@ -16,4 +16,4 @@ export enum View {
 
 export type PickerComponentProps = {
   onPick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-}
+};

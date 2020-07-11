@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import moment from "moment";
 
 import { PickerComponentProps, PickerProps, View } from "./types";
-import { ViewContext } from "../state/ViewContext";
-import { DateContext } from "../state/DateContext";
+import { DateContext, ViewProvider } from "../state";
 import { getHigherView, getLowerView, getViewDate } from "./utils";
 import { configLocale } from "../utils";
 
-import { MonthPicker } from "./monthPicker";
-import { DayPicker } from "./dayPicker";
-import { YearPicker } from "./yearPicker";
+import { DayPicker } from "./DayPicker";
+import { MonthPicker } from "./MonthPicker";
+import { YearPicker } from "./YearPicker";
 import { ViewChanger } from "./ViewChanger";
 import "./Picker.scss";
 
@@ -51,13 +50,13 @@ export const Picker: React.FC<PickerProps> = ({
 
   return (
     <div ref={pickerRef} className="picker">
-      <ViewContext.Provider value={{ viewDate, view }}>
+      <ViewProvider view={view} viewDate={viewDate}>
         <ViewChanger
           onViewSwitch={() => setView(getHigherView(view))}
           onRangeSwitch={handleRangeSwitch}
         />
         <Component onPick={handlePick} />
-      </ViewContext.Provider>
+      </ViewProvider>
     </div>
   );
 };
