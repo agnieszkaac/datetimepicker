@@ -2,8 +2,8 @@ import React from "react";
 import { render } from "@testing-library/react";
 import moment from "moment";
 
-import { DayPicker } from "./";
-import { setToday } from "../../testUtils";
+import { DayPicker } from "./dayPicker";
+import { setToday } from "../testUtils";
 import { showDaysNumber } from "./utils";
 
 describe("<DayPicker /> should", () => {

@@ -2,8 +2,8 @@ import React from "react";
 import { render } from "@testing-library/react";
 import moment from "moment";
 
-import { YearPicker } from "./";
-import { setToday } from "../../testUtils";
+import { YearPicker } from "./yearPicker";
+import { setToday } from "../testUtils";
 
 describe("<YearPicker /> should", () => {
   setToday();

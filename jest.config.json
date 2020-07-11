@@ -1,6 +1,6 @@
 {
   "roots": ["<rootDir>/src"],
-  "testRegex": "((\\.|/*.)(test))\\.js?$",
+  "testRegex": "((\\.|/*.)(test))\\.(ts|js)x?$",
   "setupFilesAfterEnv": [
     "@testing-library/jest-dom/extend-expect"
   ],

@@ -1,10 +1,10 @@
-@import "../../common";
+@import "src/common";
 
-$size: $size-xl;
+$size: $size-m;
 
-.year-picker {
-  @include grid($size, 4, $spacing-s);
-  .year {
+.day-picker {
+  @include grid($size, 7);
+  .day {
     height: $size;
     width: $size;
     color: $text;
@@ -17,6 +17,10 @@ $size: $size-xl;
     &:hover {
       background-color: $background-hover;
     }
+    &.prev-day,
+    &.next-day {
+      color: $text-light;
+    }
     &.is-today {
       border: 1px solid $border-today;
     }
@@ -24,5 +28,16 @@ $size: $size-xl;
       color: $text-selected;
       background-color: $background-selected;
     }
+  }
+}
+.week-days {
+  @include grid($size, 7);
+  .day-of-week {
+    margin: $spacing-m 0;
+    text-align: center;
+    font-size: $font-size-small;
+    line-height: $size-xs;
+    font-weight: 600;
+    vertical-align: middle;
   }
 }

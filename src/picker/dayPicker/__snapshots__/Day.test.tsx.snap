@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Day /> should match snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="day"
+    data-testid="day"
+    type="button"
+    value="2020-01-01T00:00:00.000Z"
+  >
+    1
+  </button>
+</DocumentFragment>
+`;

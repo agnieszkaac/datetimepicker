@@ -11,6 +11,7 @@ import {
   configLocale,
 } from "./utils";
 import "./DatePicker.scss";
+import { DateContext } from "./state/DateContext";
 
 export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   value,
@@ -54,24 +55,24 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
   };
 
   return (
-    <div ref={wrapperRef} className="wrapper">
-      <Input
-        value={date}
-        format={displayFormat}
-        inputRef={inputRef}
-        onClick={onClick}
-        onBlur={onBlur}
-        onChange={handleChange}
-      />
-      {pickerOpen && (
-        <Picker
-          date={date}
-          locale={locale}
-          firstDayOfWeek={firstDayOfWeek}
-          pickerRef={pickerRef}
-          onPick={handlePick}
+    <DateContext.Provider value={{ date }}>
+      <div ref={wrapperRef} className="wrapper">
+        <Input
+          format={displayFormat}
+          inputRef={inputRef}
+          onClick={onClick}
+          onBlur={onBlur}
+          onChange={handleChange}
         />
-      )}
-    </div>
+        {pickerOpen && (
+          <Picker
+            locale={locale}
+            firstDayOfWeek={firstDayOfWeek}
+            pickerRef={pickerRef}
+            onPick={handlePick}
+          />
+        )}
+      </div>
+    </DateContext.Provider>
   );
 };

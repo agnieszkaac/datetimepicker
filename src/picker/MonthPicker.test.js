@@ -2,8 +2,8 @@ import React from "react";
 import { render } from "@testing-library/react";
 import moment from "moment";
 
-import { MonthPicker } from "./index";
-import { setToday } from "../../testUtils";
+import { MonthPicker } from "./monthPicker";
+import { setToday } from "../testUtils";
 
 describe("<MonthPicker /> should", () => {
   setToday();

@@ -1,10 +1,10 @@
-@import "../../common";
+@import "src/common";
 
 $size: $size-xl;
 
-.month-picker {
+.year-picker {
   @include grid($size, 4, $spacing-s);
-  .month {
+  .year {
     height: $size;
     width: $size;
     color: $text;

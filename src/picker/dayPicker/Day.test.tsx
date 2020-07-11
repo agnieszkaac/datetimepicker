@@ -1,52 +1,52 @@
 import React from "react";
+import MockDate from "mockdate";
 import moment from "moment";
 import { render, fireEvent } from "@testing-library/react";
 
-import { Day } from "./";
-import { setToday } from "../../testUtils";
+import { Day, DayProps } from "./Day";
 
 describe("<Day /> should", () => {
-  setToday();
+  let props: DayProps;
+  let value: string;
 
-  let value = null;
-  const displayValue = "1";
-
-  //default props
-  const date = moment();
   const onClick = jest.fn((e) => (value = e.target.value));
-  const props = {
-    date,
-    selected: false,
-    className: "test",
-    onClick,
-  };
+
+  beforeEach(() => {
+    MockDate.set("2020-01-01");
+
+    props = {
+      viewDate: moment(),
+      onClick,
+    };
+  });
+
+  afterEach(() => {
+    MockDate.reset();
+  });
 
   it("match snapshot", () => {
     const { asFragment } = render(<Day {...props} />);
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it("have correct display value for default date", () => {
+  it("display correct value for default date", () => {
     const { getByTestId } = render(<Day {...props} />);
     const day = getByTestId("day");
 
-    expect(day).toHaveTextContent(displayValue);
+    expect(day).toHaveTextContent("1");
   });
 
-  it("have selected class when selected", () => {
-    const { getByTestId, rerender } = render(<Day {...props} />);
+  it("pass class names", () => {
+    const { getByTestId } = render(<Day {...props} className="test" />);
     const day = getByTestId("day");
 
-    expect(day).not.toHaveClass("selected");
-
-    rerender(<Day {...props} selected={true} />);
-    expect(day).toHaveClass("selected");
+    expect(day).toHaveClass("test");
   });
 
-  it("fire onClick with proper value when clicked", () => {
+  it("fire onClick with correct value when clicked", () => {
     const { getByTestId } = render(<Day {...props} />);
     const day = getByTestId("day");
-    const expectedValue = date.toISOString();
+    const expectedValue = "2020-01-01T00:00:00.000Z";
 
     expect(day).toHaveValue(expectedValue);
 

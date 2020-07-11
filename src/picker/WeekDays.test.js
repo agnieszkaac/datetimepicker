@@ -2,8 +2,8 @@ import React from "react";
 import { render } from "@testing-library/react";
 import moment from "moment";
 
-import { WeekDays } from "./";
-import { setToday } from "../../testUtils";
+import { WeekDays } from "./dayPicker";
+import { setToday } from "../testUtils";
 
 describe("<WeekDays /> should", () => {
   setToday();
