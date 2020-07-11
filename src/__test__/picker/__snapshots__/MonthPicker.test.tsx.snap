@@ -4,6 +4,7 @@ exports[`<MonthPicker /> should match snapshot 1`] = `
 <DocumentFragment>
   <div
     class="month-picker"
+    data-testid="month-picker"
   >
     <button
       class="month is-today"

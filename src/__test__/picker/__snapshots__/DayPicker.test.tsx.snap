@@ -50,6 +50,7 @@ exports[`<DayPicker /> should match snapshot 1`] = `
   </div>
   <div
     class="day-picker"
+    data-testid="day-picker"
   >
     <button
       class="day prev-month"
