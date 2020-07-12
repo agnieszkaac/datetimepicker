@@ -7,6 +7,7 @@ import { defaultGridSize as length } from "./utils";
 import { DateContext, ViewContext } from "../state";
 
 import { PickButton } from "./PickButton";
+
 import "./MonthPicker.scss";
 
 export const MonthPicker: React.FC<PickerComponentProps> = ({ onPick }) => {

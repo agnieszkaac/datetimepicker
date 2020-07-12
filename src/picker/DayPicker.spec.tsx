@@ -7,7 +7,7 @@ import { PickerComponentProps, View } from "./types";
 
 import { DayPicker } from "./DayPicker";
 
-describe("<DayPicker /> should", () => {
+describe("<DayPicker />", () => {
   let props: PickerComponentProps;
   let date: Moment;
   let viewDate: Moment;
@@ -27,7 +27,7 @@ describe("<DayPicker /> should", () => {
     MockDate.reset();
   });
 
-  it("render weekdays and 42 days", () => {
+  it("should render weekdays and 42 days", () => {
     const { getByTestId, getAllByTestId } = render(
       <DayPicker {...props} />,
       {},
@@ -42,7 +42,7 @@ describe("<DayPicker /> should", () => {
     expect(days.length).toBe(42);
   });
 
-  it("render proper amount of prev-day and next-day elements for default setup", () => {
+  it("should render proper amount of prev-day and next-day elements for default setup", () => {
     const { container } = render(
       <DayPicker {...props} />,
       {},
@@ -55,7 +55,7 @@ describe("<DayPicker /> should", () => {
     expect(nextDays.length).toBe(8);
   });
 
-  it("render one day marked as 'today' when in scope of viewDate", () => {
+  it("should render one day marked as 'today' when in scope of viewDate", () => {
     const { container } = render(
       <DayPicker {...props} />,
       {},
@@ -66,7 +66,7 @@ describe("<DayPicker /> should", () => {
     expect(days?.length).toEqual(1);
   });
 
-  it("render none 'today' days when date not in scope od viewDate", () => {
+  it("should render none 'today' days when date not in scope od viewDate", () => {
     const { container } = render(
       <DayPicker {...props} />,
       {},
@@ -77,7 +77,7 @@ describe("<DayPicker /> should", () => {
     expect(days?.length).toEqual(0);
   });
 
-  it("select a day with proper class when it's clicked", () => {
+  it("should apply 'select' class to button having date value", () => {
     const { getByText, rerender } = render(
       <DayPicker {...props} />,
       {},
