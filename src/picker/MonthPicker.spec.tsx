@@ -50,14 +50,14 @@ describe("<MonthPicker />", () => {
 
   it("should not show a current month when not in scope of viewDate", () => {
     viewDate = moment().year(5).startOf("month");
-    const { getByText, rerender } = render(
+    const { getByText } = render(
       <MonthPicker {...props} />,
       {},
       { view: View.Month, date, viewDate },
     );
     let jan = getByText("Jan");
 
-    expect(jan).not.toHaveClass("selected"); //selected Jan is in year 2020
+    expect(jan).not.toHaveClass("is-today"); // current Jan is in year 2020
   });
 
   it("should apply 'selected' class to button having date value", () => {
