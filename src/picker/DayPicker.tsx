@@ -8,7 +8,6 @@ import { DateContext, ViewContext } from "../state";
 
 import { WeekDays } from "./WeekDays";
 import { PickerControls } from "./PickerControls";
-import "./DayPicker.scss";
 
 export const DayPicker: React.FC<PickerComponentProps> = ({ onPick }) => {
   const { viewDate } = React.useContext(ViewContext);
@@ -29,6 +28,7 @@ export const DayPicker: React.FC<PickerComponentProps> = ({ onPick }) => {
           }
           getClassName={(dateValue, i) =>
             cx({
+              day: true,
               selected: date?.isSame(dateValue, "d"),
               "is-today": dateValue.isSame(moment(), "d"),
               "prev-day": dateValue.isSame(prevMonth, "M"),

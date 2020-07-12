@@ -8,7 +8,6 @@ import { DateContext, ViewContext } from "../state";
 import { getDecadeStart } from "../utils";
 
 import { PickerControls } from "./PickerControls";
-import "./YearPicker.scss";
 
 export const YearPicker: React.FC<PickerComponentProps> = ({ onPick }) => {
   const { viewDate } = React.useContext(ViewContext);
@@ -27,6 +26,7 @@ export const YearPicker: React.FC<PickerComponentProps> = ({ onPick }) => {
         }
         getClassName={(dateValue, i) =>
           cx({
+            year: true,
             selected: date?.year() === decadeStart + i,
             "is-today": dateValue.isSame(moment(), "y"),
           })

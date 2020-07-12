@@ -1,3 +1,7 @@
+@import "src/common";
+
+$size: $size-xl;
+
 .picker {
   display: flex;
   flex-flow: column;
@@ -9,6 +13,51 @@
   background-color: white;
   border: 1px solid #e2e2e2;
   border-radius: 2px;
+
+  .day-picker,
+  .month-picker,
+  .year-picker {
+    @include grid($size, 7);
+    .day,
+    .month,
+    .year {
+      height: $size;
+      width: $size;
+      color: $text;
+      background-color: $background;
+      border: none;
+      outline: none;
+      border-radius: 2px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $background-hover;
+      }
+      &.prev-day,
+      &.next-day {
+        color: $text-light;
+      }
+      &.is-today {
+        border: 1px solid $border-today;
+      }
+      &.selected {
+        color: $text-selected;
+        background-color: $background-selected;
+      }
+    }
+  }
+}
+
+.week-days {
+  @include grid($size, 7);
+  .day-of-week {
+    margin: $spacing-m 0;
+    text-align: center;
+    font-size: $font-size-small;
+    line-height: $size-xs;
+    font-weight: 600;
+    vertical-align: middle;
+  }
 }
 
 .view-changer,

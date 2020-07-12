@@ -7,7 +7,6 @@ import { defaultGridSize as length } from "./utils";
 import { DateContext, ViewContext } from "../state";
 
 import { PickerControls } from "./PickerControls";
-import "./MonthPicker.scss";
 
 export const MonthPicker: React.FC<PickerComponentProps> = ({ onPick }) => {
   const { viewDate } = React.useContext(ViewContext);
@@ -22,6 +21,7 @@ export const MonthPicker: React.FC<PickerComponentProps> = ({ onPick }) => {
         dateFormula={(viewDate, i) => moment(viewDate).month(i)}
         getClassName={(dateValue, i) =>
           cx({
+            month: true,
             selected: date?.month() === i && date?.isSame(viewDate, "y"),
             "is-today": dateValue.isSame(moment(), "M"),
           })
