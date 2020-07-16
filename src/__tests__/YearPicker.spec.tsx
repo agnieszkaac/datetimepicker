@@ -2,10 +2,10 @@ import React from "react";
 import MockDate from "mockdate";
 import moment, { Moment } from "moment";
 
-import { PickerComponentProps, View } from "./types";
+import { PickerComponentProps, View } from "../picker/types";
 
-import { YearPicker } from "./YearPicker";
-import { render } from "../__tests__/customRender";
+import { YearPicker } from "../picker/YearPicker";
+import { render } from "./customRender";
 
 describe("<YearPicker />", () => {
   let props: PickerComponentProps;

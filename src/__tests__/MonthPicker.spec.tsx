@@ -2,9 +2,9 @@ import React from "react";
 import MockDate from "mockdate";
 import moment, { Moment } from "moment";
 
-import { MonthPicker } from "./MonthPicker";
-import { render } from "../__tests__/customRender";
-import { PickerComponentProps, View } from "./types";
+import { MonthPicker } from "../picker/MonthPicker";
+import { render } from "./customRender";
+import { PickerComponentProps, View } from "../picker/types";
 
 describe("<MonthPicker />", () => {
   let props: PickerComponentProps;

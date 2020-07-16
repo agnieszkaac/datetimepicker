@@ -2,10 +2,10 @@ import React from "react";
 import MockDate from "mockdate";
 import moment, { Moment } from "moment";
 
-import { render } from "../__tests__/customRender";
-import { PickerComponentProps, View } from "./types";
+import { render } from "./customRender";
+import { PickerComponentProps, View } from "../picker/types";
 
-import { DayPicker } from "./DayPicker";
+import { DayPicker } from "../picker/DayPicker";
 
 describe("<DayPicker />", () => {
   let props: PickerComponentProps;

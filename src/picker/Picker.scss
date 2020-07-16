@@ -1,7 +1,5 @@
 @import "src/common";
 
-$size: $size-xl;
-
 .picker {
   display: flex;
   flex-flow: column;
@@ -17,12 +15,9 @@ $size: $size-xl;
   .day-picker,
   .month-picker,
   .year-picker {
-    @include grid($size, 7);
     .day,
     .month,
     .year {
-      height: $size;
-      width: $size;
       color: $text;
       background-color: $background;
       border: none;
@@ -46,15 +41,31 @@ $size: $size-xl;
       }
     }
   }
+  .day-picker {
+    @include grid($size-m, 7);
+    .day {
+      height: $size-m;
+      width: $size-m;
+    }
+  }
+  .month-picker,
+  .year-picker {
+    @include grid($size-xl, 4);
+    .month,
+    .year {
+      height: $size-xl;
+      width: $size-xl;
+    }
+  }
 }
 
 .week-days {
-  @include grid($size, 7);
+  @include grid($size-m, 7);
   .day-of-week {
     margin: $spacing-m 0;
     text-align: center;
     font-size: $font-size-small;
-    line-height: $size-xs;
+    line-height: $size-m;
     font-weight: 600;
     vertical-align: middle;
   }

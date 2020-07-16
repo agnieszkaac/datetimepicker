@@ -1,5 +1,5 @@
 import React from "react";
-import moment, { Moment } from "moment";
+import moment from "moment";
 import cx from "classnames";
 
 import { PickerComponentProps } from "./types";
@@ -7,7 +7,7 @@ import { defaultGridSize as length } from "./utils";
 import { DateContext, ViewContext } from "../state";
 import { getDecadeStart } from "../utils";
 
-import { PickerControls } from "./PickerControls";
+import { PickButton } from "./PickButton";
 
 export const YearPicker: React.FC<PickerComponentProps> = ({ onPick }) => {
   const { viewDate } = React.useContext(ViewContext);
@@ -17,21 +17,23 @@ export const YearPicker: React.FC<PickerComponentProps> = ({ onPick }) => {
 
   return (
     <div className="year-picker">
-      <PickerControls
-        onPick={onPick}
-        length={length}
-        type={"year"}
-        dateFormula={(viewDate: Moment, i: number) =>
-          moment(viewDate).year(decadeStart + i)
-        }
-        getClassName={(dateValue, i) =>
-          cx({
-            year: true,
-            selected: date?.year() === decadeStart + i,
-            "is-today": dateValue.isSame(moment(), "y"),
-          })
-        }
-      />
+      {Array.from({ length }, (_e, i) => {
+        const dateValue = moment(viewDate).year(decadeStart + i);
+        return (
+          <PickButton
+            key={i}
+            type="year"
+            date={dateValue}
+            format="YYYY"
+            onClick={onPick}
+            className={cx({
+              year: true,
+              selected: date?.year() === decadeStart + i,
+              "is-today": dateValue.isSame(moment(), "y"),
+            })}
+          />
+        );
+      })}
     </div>
   );
 };

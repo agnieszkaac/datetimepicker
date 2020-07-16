@@ -3,7 +3,7 @@ import MockDate from "mockdate";
 import moment from "moment";
 import { render, fireEvent } from "@testing-library/react";
 
-import { PickButton, PickButtonProps } from "./PickButton";
+import { PickButton, PickButtonProps } from "../picker/PickButton";
 
 describe("<PickButton />", () => {
   let props: PickButtonProps;

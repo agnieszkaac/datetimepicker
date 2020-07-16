@@ -3,7 +3,7 @@ import MockDate from "mockdate";
 import moment from "moment";
 import { render } from "@testing-library/react";
 
-import { WeekDays } from "./WeekDays";
+import { WeekDays } from "../picker/WeekDays";
 
 describe("<WeekDays />", () => {
   beforeEach(() => {
