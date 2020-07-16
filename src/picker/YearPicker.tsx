@@ -3,9 +3,8 @@ import moment from "moment";
 import cx from "classnames";
 
 import { PickerComponentProps } from "./types";
-import { defaultGridSize as length } from "./utils";
+import { defaultGridSize as length, getDecadeStart } from "./utils";
 import { DateContext, ViewContext } from "../state";
-import { getDecadeStart } from "../utils";
 
 import { PickButton } from "./PickButton";
 

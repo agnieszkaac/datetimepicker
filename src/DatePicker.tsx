@@ -1,36 +1,45 @@
-import React, { Ref, useRef, useState } from "react";
+import React, { Ref, useEffect, useRef, useState } from "react";
 import moment from "moment";
 
-import { DatePickerProps } from "./";
-import { Picker } from "./picker/Picker";
-import { Input } from "./input/Input";
-import {
-  noop,
-  parseValueToMoment,
-  togglePickerOpen,
-  configLocale,
-} from "./utils";
-import "./DatePicker.scss";
 import { DateProvider } from "./state";
 
-export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
-  value,
-  hideOnPick = false,
-  displayFormat,
-  locale = "en",
-  firstDayOfWeek,
-  onClick = noop,
-  onBlur = noop,
-  onPick = noop,
-}) => {
+import { noop, parseValueToMoment, ValueDate } from "./utils";
+import { Picker } from "./picker/Picker";
+import { Input } from "./input/Input";
+
+import "./DatePicker.scss";
+
+export interface DatePickerProps {
+  value?: ValueDate;
+  hideOnPick?: boolean;
+  displayFormat?: string;
+  locale?: string;
+  //[0-6] where 0 is Sunday, 6 is Saturday. Default 0
+  firstDayOfWeek?: number;
+  onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onPick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+export const DatePicker: React.FunctionComponent<DatePickerProps> = (props) => {
+  const {
+    value,
+    hideOnPick = false,
+    displayFormat,
+    locale = "en",
+    firstDayOfWeek = 0,
+    onClick = noop,
+    onBlur = noop,
+    onPick = noop,
+  } = props;
   const wrapperRef: Ref<HTMLDivElement> = useRef(null);
   const pickerRef: Ref<HTMLDivElement> = useRef(null);
   const inputRef: Ref<HTMLInputElement> = useRef(null);
 
-  const [date, setDate] = useState(parseValueToMoment(value));
+  const [date, setDate] = useState(
+    value ? parseValueToMoment(value) : undefined,
+  );
   const [pickerOpen, setPickerOpen] = useState(false);
-
-  // configLocale(date, locale);
 
   const handleClickListener = (event: MouseEvent) => {
     if (!wrapperRef.current?.contains(event.target as Node)) {
@@ -43,7 +52,13 @@ export const DatePicker: React.FunctionComponent<DatePickerProps> = ({
       setPickerOpen(!pickerOpen);
     }
   };
-  togglePickerOpen(pickerOpen, handleClickListener);
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickListener);
+    return () => {
+      document.removeEventListener("mousedown", handleClickListener);
+    };
+  }, [pickerOpen]);
 
   const handlePick = (e: React.MouseEvent<HTMLButtonElement>) => {
     setDate(moment(e.currentTarget.value));

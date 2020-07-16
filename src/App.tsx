@@ -14,7 +14,7 @@ ReactDOM.render(
       value={date}
       displayFormat={"DD-MMM-YYYY"}
       locale={"pl"}
-      firstDayOfWeek={2}
+      firstDayOfWeek={1}
     />
   </div>,
   document.getElementById("root"),

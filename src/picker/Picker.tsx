@@ -3,8 +3,12 @@ import moment from "moment";
 
 import { PickerComponentProps, PickerProps, View } from "./types";
 import { DateContext, ViewProvider } from "../state";
-import { getHigherView, getLowerView, getViewDate } from "./utils";
-import { configLocale } from "../utils";
+import {
+  getHigherView,
+  getLowerView,
+  getViewDate,
+  configLocale,
+} from "./utils";
 
 import { DayPicker } from "./DayPicker";
 import { MonthPicker } from "./MonthPicker";
@@ -20,12 +24,8 @@ const PickerComponent: {
   [View.Year]: YearPicker,
 };
 
-export const Picker: React.FC<PickerProps> = ({
-  locale,
-  firstDayOfWeek,
-  pickerRef,
-  onPick,
-}) => {
+export const Picker: React.FC<PickerProps> = (props) => {
+  const { locale, firstDayOfWeek, pickerRef, onPick } = props;
   const { date } = React.useContext(DateContext);
 
   const [view, setView] = useState(View.Day);

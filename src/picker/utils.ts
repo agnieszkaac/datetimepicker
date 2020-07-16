@@ -1,4 +1,5 @@
 import moment, { Moment } from "moment";
+
 import { View } from "./types";
 
 export const weekDaysNumber = 7; //Always show 7 week days => columns
@@ -36,4 +37,33 @@ export const getViewDate = (dir: number, view: View, viewDate: Moment) => {
   return moment(viewDate)
     .add(getViewChangeOffset(dir, view), unit)
     .startOf(unit);
+};
+
+export const getDecadeStart = (date: Moment) =>
+  Math.floor(moment(date).get("year") / 10) * 10;
+
+const getDecadeLabel = (date: Moment) => {
+  const decadeStart = getDecadeStart(date);
+  return `${decadeStart} - ${decadeStart + 11}`;
+};
+
+export const getViewLabel = (view: View, viewDate: Moment) =>
+  view === View.Year
+    ? getDecadeLabel(viewDate)
+    : viewDate.format(view === View.Month ? "YYYY" : "MMMM YYYY");
+
+export const configLocale = (
+  date: Moment | undefined,
+  locale: string,
+  dow?: number,
+) => {
+  date?.locale(locale);
+  if (dow) {
+    moment.updateLocale(locale, {
+      week: {
+        dow,
+        doy: 7 + dow - 1,
+      },
+    });
+  }
 };

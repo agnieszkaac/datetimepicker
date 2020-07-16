@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import { DateContext } from "../state";
-import { parseMomentToString, noop } from "../utils";
+import { noop } from "../utils";
 import { InputProps } from "./types";
 
 import "./Input.scss";
@@ -19,7 +19,7 @@ export const Input: React.FunctionComponent<InputProps> = ({
       name="datepicker-input"
       className="datepicker-input"
       ref={inputRef}
-      value={parseMomentToString(date, format)}
+      value={date ? date.format(format) : undefined}
       onClick={onClick}
       onBlur={onBlur}
       onChange={onChange}
